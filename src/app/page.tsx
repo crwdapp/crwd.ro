@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Hero from "@/components/Hero";
 import BenefitCard from "@/components/BenefitCard";
 import HowItWorks from "@/components/HowItWorks";
@@ -237,10 +238,11 @@ export default function Home() {
                 {/* Phone Screen */}
                 <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
                   {/* Day Screenshot */}
-                  <img 
+                  <Image 
                     src="/images/app-day-screenshot.jpg" 
                     alt="CRWD By Day Screenshot"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   
                   {/* Phone Notch */}
@@ -270,10 +272,11 @@ export default function Home() {
                 {/* Phone Screen */}
                 <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
                   {/* Night Screenshot */}
-                  <img 
+                  <Image 
                     src="/images/app-night-screenshot.jpg" 
                     alt="CRWD By Night Screenshot"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   
                   {/* Phone Notch */}
@@ -408,9 +411,11 @@ export default function Home() {
                 className="hover:scale-105 transition-transform duration-300"
                 aria-label="Download from App Store"
               >
-                <img 
+                <Image 
                   src="/images/download app store.png" 
                   alt="Download from App Store" 
+                  width={200}
+                  height={64}
                   className="h-14 md:h-16 w-auto"
                 />
               </a>
@@ -419,9 +424,11 @@ export default function Home() {
                 className="hover:scale-105 transition-transform duration-300"
                 aria-label="Download from Google Play"
               >
-                <img 
+                <Image 
                   src="/images/download google play.png" 
                   alt="Download from Google Play" 
+                  width={200}
+                  height={64}
                   className="h-14 md:h-16 w-auto"
                 />
               </a>

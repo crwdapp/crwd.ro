@@ -4,19 +4,19 @@ import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl'
 import { useEffect, useRef } from 'react';
 
 
-function debounce(func, wait) {
-  let timeout;
-  return function (...args) {
+function debounce(func: (...args: any[]) => void, wait: number) {
+  let timeout: NodeJS.Timeout;
+  return function (this: any, ...args: any[]) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
 }
 
-function lerp(p1, p2, t) {
+function lerp(p1: number, p2: number, t: number): number {
   return p1 + (p2 - p1) * t;
 }
 
-function autoBind(instance) {
+function autoBind(instance: any) {
   const proto = Object.getPrototypeOf(instance);
   Object.getOwnPropertyNames(proto).forEach(key => {
     if (key !== 'constructor' && typeof instance[key] === 'function') {

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface PhoneMockupProps {
   screenshots: {
@@ -66,10 +67,11 @@ export default function PhoneMockup({ screenshots }: PhoneMockupProps) {
         <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
           {/* Dynamic Image */}
           <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
-            <img 
+            <Image 
               src={currentImage} 
               alt="App Screenshot"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
             />
           </div>
           
