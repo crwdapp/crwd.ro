@@ -25,7 +25,7 @@ function autoBind(instance: any) {
   });
 }
 
-function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'black') {
+function createTextTexture(gl: any, text: string, font = 'bold 30px monospace', color = 'black') {
   const canvas = document.createElement('canvas');
   const context = canvas.getContext('2d');
   context.font = font;
@@ -46,7 +46,14 @@ function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'blac
 }
 
 class Title {
-  constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }) {
+  constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }: {
+    gl: any;
+    plane: any;
+    renderer: any;
+    text: string;
+    textColor?: string;
+    font?: string;
+  }) {
     autoBind(this);
     this.gl = gl;
     this.plane = plane;
