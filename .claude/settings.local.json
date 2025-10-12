@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\app/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Bash(powershell:*)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\components/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\components/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\components/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\public/**)",
+      "Bash(copy:*)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\public/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\app/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

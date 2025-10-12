@@ -13,3 +13,4 @@ export default function ParteneriLayout({
 }) {
   return <>{children}</>;
 }
+

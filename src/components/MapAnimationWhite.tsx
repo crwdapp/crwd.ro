@@ -388,3 +388,4 @@ export default function MapAnimationWhite() {
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" style={{ minHeight: '100%', minWidth: '100%' }} />;
 }
+
