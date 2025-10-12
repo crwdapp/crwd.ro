@@ -67,7 +67,7 @@ export async function POST(req: Request) {
     try {
       await upsertContact(
         email,
-        Number(process.env.BREVO_LIST_ID_USERS),
+        Number(process.env.BREVO_LIST_ID_USERS || "1"),
         {
           EMAIL: email,
           CITY: city || "",

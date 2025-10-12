@@ -1,7 +1,7 @@
 const BREVO_URL = "https://api.brevo.com/v3";
 
 const headers = {
-  "api-key": process.env.BREVO_API_KEY!,
+  "api-key": process.env.BREVO_API_KEY || "placeholder_brevo_api_key",
   "content-type": "application/json",
 };
 

@@ -280,7 +280,7 @@ class Media {
       renderer: this.renderer,
       text: this.text,
       textColor: this.textColor,
-      fontFamily: this.font
+      font: this.font
     });
   }
   update(scroll: any, direction: string) {
@@ -353,8 +353,8 @@ class App {
   camera: any;
   scene: any;
   planeGeometry: any;
-  mediasImages: any[];
-  medias: any[];
+  mediasImages!: any[];
+  medias!: any[];
   screen: any;
   viewport: any;
   isDown!: boolean;
@@ -396,7 +396,7 @@ class App {
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
+    this.createMedias(items || [], bend, textColor, borderRadius, font);
     this.update();
     this.addEventListeners();
   }
@@ -555,9 +555,18 @@ export default function CircularGallery({
   font = 'bold 30px Figtree',
   scrollSpeed = 2,
   scrollEase = 0.05
+}: {
+  items?: any[];
+  bend?: number;
+  textColor?: string;
+  borderRadius?: number;
+  font?: string;
+  scrollSpeed?: number;
+  scrollEase?: number;
 }) {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (!containerRef.current) return;
     const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
     return () => {
       app.destroy();

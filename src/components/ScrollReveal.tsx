@@ -16,8 +16,19 @@ const ScrollReveal = ({
   textClassName = '',
   rotationEnd = 'bottom bottom',
   wordAnimationEnd = 'bottom bottom'
+}: {
+  children: React.ReactNode;
+  scrollContainerRef?: React.RefObject<HTMLElement>;
+  enableBlur?: boolean;
+  baseOpacity?: number;
+  baseRotation?: number;
+  blurStrength?: number;
+  containerClassName?: string;
+  textClassName?: string;
+  rotationEnd?: string;
+  wordAnimationEnd?: string;
 }) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';

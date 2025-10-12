@@ -74,7 +74,7 @@ export async function POST(req: Request) {
     try {
       await upsertContact(
         email,
-        Number(process.env.BREVO_LIST_ID_VENUES),
+        Number(process.env.BREVO_LIST_ID_VENUES || "2"),
         {
           EMAIL: email,
           CONTACT_NAME: contact_name,
