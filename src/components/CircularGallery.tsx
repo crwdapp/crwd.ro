@@ -131,14 +131,14 @@ class Media {
   program: any;
   plane: any;
   title: any;
-  speed: number;
-  isBefore: boolean;
-  isAfter: boolean;
-  scale: number;
-  padding: number;
-  width: number;
-  widthTotal: number;
-  x: number;
+  speed!: number;
+  isBefore!: boolean;
+  isAfter!: boolean;
+  scale!: number;
+  padding!: number;
+  width!: number;
+  widthTotal!: number;
+  x!: number;
 
   constructor({
     geometry,
@@ -356,9 +356,9 @@ class App {
   medias: any[];
   screen: any;
   viewport: any;
-  isDown: boolean;
-  start: number;
-  raf: number;
+  isDown!: boolean;
+  start!: number;
+  raf!: number;
   boundOnResize: any;
   boundOnWheel: any;
   boundOnTouchDown: any;
