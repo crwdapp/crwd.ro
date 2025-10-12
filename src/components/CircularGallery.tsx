@@ -49,6 +49,14 @@ function createTextTexture(gl: any, text: string, font = 'bold 30px monospace', 
 }
 
 class Title {
+  gl: any;
+  plane: any;
+  renderer: any;
+  text: string;
+  textColor: string;
+  font: string;
+  mesh: any;
+
   constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }: {
     gl: any;
     plane: any;
@@ -105,6 +113,33 @@ class Title {
 }
 
 class Media {
+  extra: number;
+  geometry: any;
+  gl: any;
+  image: string;
+  index: number;
+  length: number;
+  renderer: any;
+  scene: any;
+  screen: any;
+  text: string;
+  viewport: any;
+  bend: number;
+  textColor: string;
+  borderRadius: number;
+  font: string;
+  program: any;
+  plane: any;
+  title: any;
+  speed: number;
+  isBefore: boolean;
+  isAfter: boolean;
+  scale: number;
+  padding: number;
+  width: number;
+  widthTotal: number;
+  x: number;
+
   constructor({
     geometry,
     gl,
@@ -120,6 +155,21 @@ class Media {
     textColor,
     borderRadius = 0,
     font
+  }: {
+    geometry: any;
+    gl: any;
+    image: string;
+    index: number;
+    length: number;
+    renderer: any;
+    scene: any;
+    screen: any;
+    text: string;
+    viewport: any;
+    bend: number;
+    textColor: string;
+    borderRadius?: number;
+    font: string;
   }) {
     this.extra = 0;
     this.geometry = geometry;
@@ -232,7 +282,7 @@ class Media {
       fontFamily: this.font
     });
   }
-  update(scroll, direction) {
+  update(scroll: any, direction: string) {
     this.plane.position.x = this.x - scroll.current - this.extra;
 
     const x = this.plane.position.x;
@@ -273,7 +323,7 @@ class Media {
       this.isBefore = this.isAfter = false;
     }
   }
-  onResize({ screen, viewport } = {}) {
+  onResize({ screen, viewport }: { screen?: any; viewport?: any } = {}) {
     if (screen) this.screen = screen;
     if (viewport) {
       this.viewport = viewport;
@@ -293,8 +343,30 @@ class Media {
 }
 
 class App {
+  container: HTMLElement;
+  scrollSpeed: number;
+  scroll: any;
+  onCheckDebounce: any;
+  renderer: any;
+  gl: any;
+  camera: any;
+  scene: any;
+  planeGeometry: any;
+  mediasImages: any[];
+  medias: any[];
+  screen: any;
+  viewport: any;
+  isDown: boolean;
+  start: number;
+  raf: number;
+  boundOnResize: any;
+  boundOnWheel: any;
+  boundOnTouchDown: any;
+  boundOnTouchMove: any;
+  boundOnTouchUp: any;
+
   constructor(
-    container,
+    container: HTMLElement,
     {
       items,
       bend,
@@ -303,6 +375,14 @@ class App {
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
       scrollEase = 0.05
+    }: {
+      items?: any[];
+      bend?: number;
+      textColor?: string;
+      borderRadius?: number;
+      font?: string;
+      scrollSpeed?: number;
+      scrollEase?: number;
     } = {}
   ) {
     document.documentElement.classList.remove('no-js');
@@ -343,7 +423,7 @@ class App {
       widthSegments: 100
     });
   }
-  createMedias(items, bend = 1, textColor, borderRadius, font) {
+  createMedias(items: any[], bend = 1, textColor: string, borderRadius: number, font: string) {
     const defaultItems = [
       { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
       { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
@@ -379,12 +459,12 @@ class App {
       });
     });
   }
-  onTouchDown(e) {
+  onTouchDown(e: any) {
     this.isDown = true;
     this.scroll.position = this.scroll.current;
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
   }
-  onTouchMove(e) {
+  onTouchMove(e: any) {
     if (!this.isDown) return;
     const x = e.touches ? e.touches[0].clientX : e.clientX;
     const distance = (this.start - x) * (this.scrollSpeed * 0.025);
@@ -394,7 +474,7 @@ class App {
     this.isDown = false;
     this.onCheck();
   }
-  onWheel(e) {
+  onWheel(e: any) {
     const delta = e.deltaY || e.wheelDelta || e.detail;
     this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
     this.onCheckDebounce();
