@@ -137,11 +137,6 @@
 #   NEXT_PUBLIC_SITE_URL = "https://your-site.netlify.app"
 #   NEXT_PUBLIC_API_URL = "https://your-api.com"
 
-# Form handling
-[build.processing.skip_processing]
-  # Skip processing for certain paths
-  paths = ["/admin/*", "/api/*"]
-
 # Build hooks (optional)
 # [build.hooks]
 #   pre_build = "echo 'Starting build...'"
