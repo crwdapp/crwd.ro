@@ -1,16 +1,22 @@
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 
 const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+  const get = useCallback(() => {
+    if (typeof window === 'undefined') return defaultValue;
+    return values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+  }, [queries, values, defaultValue]);
 
-  const [value, setValue] = useState<number>(get);
+  const [value, setValue] = useState<number>(defaultValue);
 
   useEffect(() => {
-    const handler = () => setValue(get);
+    if (typeof window === 'undefined') return;
+    
+    setValue(get());
+    const handler = () => setValue(get());
     queries.forEach(q => matchMedia(q).addEventListener('change', handler));
     return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
-  }, [queries]);
+  }, [queries, get]);
 
   return value;
 };
@@ -85,8 +91,8 @@ const Masonry: React.FC<MasonryProps> = ({
 }) => {
   const columns = useMedia(
     ['(min-width:1200px)', '(min-width:768px)', '(min-width:480px)'],
-    [4, 3, 2],
-    1
+    [4, 3, 3],
+    3
   );
 
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
@@ -128,7 +134,7 @@ const Masonry: React.FC<MasonryProps> = ({
   const grid = useMemo<GridItem[]>(() => {
     if (!width) return [];
     const colHeights = new Array(columns).fill(0);
-    const gap = columns === 1 ? 8 : 12; // Smaller gap on mobile
+    const gap = columns >= 3 ? 8 : 12; // Smaller gap for 3+ columns
     const totalGaps = (columns - 1) * gap;
     const columnWidth = (width - totalGaps) / columns;
 
@@ -136,7 +142,7 @@ const Masonry: React.FC<MasonryProps> = ({
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
       // Adjust height for mobile - make items smaller on mobile
-      const height = columns === 1 ? child.height / 3 : child.height / 2;
+      const height = columns >= 3 ? child.height / 3 : child.height / 2;
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -148,6 +154,35 @@ const Masonry: React.FC<MasonryProps> = ({
 
   useLayoutEffect(() => {
     if (!imagesReady) return;
+
+    const getInitialPosition = (item: GridItem) => {
+      const containerRect = containerRef.current?.getBoundingClientRect();
+      if (!containerRect) return { x: item.x, y: item.y };
+
+      let direction = animateFrom;
+      if (animateFrom === 'random') {
+        const dirs = ['top', 'bottom', 'left', 'right'];
+        direction = dirs[Math.floor(Math.random() * dirs.length)] as typeof animateFrom;
+      }
+
+      switch (direction) {
+        case 'top':
+          return { x: item.x, y: -200 };
+        case 'bottom':
+          return { x: item.x, y: window.innerHeight + 200 };
+        case 'left':
+          return { x: -200, y: item.y };
+        case 'right':
+          return { x: window.innerWidth + 200, y: item.y };
+        case 'center':
+          return {
+            x: containerRect.width / 2 - item.w / 2,
+            y: containerRect.height / 2 - item.h / 2
+          };
+        default:
+          return { x: item.x, y: item.y };
+      }
+    };
 
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
@@ -185,7 +220,7 @@ const Masonry: React.FC<MasonryProps> = ({
     });
 
     hasMounted.current = true;
-  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease, containerRef]);
 
   const handleMouseEnter = (id: string, element: HTMLElement) => {
     if (scaleOnHover) {

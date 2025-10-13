@@ -10,7 +10,7 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, children, showMockup = false, backgroundAnimation }: HeroProps) {
   return (
-    <section className="min-h-[90vh] sm:min-h-screen lg:min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 bg-black border-b border-white/10 relative overflow-hidden">
+    <section className="min-h-[90vh] sm:min-h-screen lg:min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 bg-black border-b border-white/10 relative overflow-hidden shadow-[0_-20px_40px_-10px_rgba(0,0,0,0.3)]">
       {/* Background Animation */}
       {backgroundAnimation && (
         <div className="absolute inset-0 opacity-40 w-full h-full">
@@ -24,7 +24,7 @@ export default function Hero({ title, subtitle, children, showMockup = false, ba
             <h1 className="mb-6 sm:mb-8 leading-none tracking-tight">
               {title}
             </h1>
-            <p className=" text-white mb-8 sm:mb-10 md:mb-12 font-gotham leading-relaxed max-w-xl mx-auto">
+            <p className=" text-white font-gotham text-lg md:text-xl leading-relaxed max-w-xl mx-auto ">
               {subtitle}
             </p>
           </div>

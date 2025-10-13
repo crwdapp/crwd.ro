@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface MessageLoopProps {
   messages: string[];
@@ -48,34 +48,56 @@ export default function MessageLoop({ messages, className = '', textColor = 'tex
     <div className={`messageloop ${className}`}>
       <div className="messageloop__track" ref={trackRef}>
         <div className="messageloop__list">
+          {/* First set of messages */}
           {messages.map((message, index) => (
-            <div key={`first-${index}`} className="messageloop__item">
-              <div className="messageloop__node">
-                <span className={`${textColor} font-gotham-condensed font-bold text-2xl md:text-3xl`}>
-                  {message}
-                </span>
+            <React.Fragment key={`first-${index}`}>
+              <div className="messageloop__item">
+                <div className="messageloop__node">
+                  <span className={`${textColor} font-gotham  text-2xl md:text-3xl`}>
+                    {message}
+                  </span>
+                </div>
               </div>
-            </div>
+              {index < messages.length - 1 && (
+                <div className="messageloop__item">
+                  <div className="messageloop__node">
+                    <span className={`${textColor} font-gotham  text-2xl md:text-3xl`}>
+                      •
+                    </span>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
-        </div>
-        <div className="messageloop__list">
+          {/* Second set of messages for seamless loop */}
           {messages.map((message, index) => (
-            <div key={`second-${index}`} className="messageloop__item">
-              <div className="messageloop__node">
-                <span className={`${textColor} font-gotham-condensed font-bold text-2xl md:text-3xl`}>
-                  {message}
-                </span>
+            <React.Fragment key={`second-${index}`}>
+              <div className="messageloop__item">
+                <div className="messageloop__node">
+                  <span className={`${textColor} font-gotham  text-2xl md:text-3xl`}>
+                    {message}
+                  </span>
+                </div>
               </div>
-            </div>
+              {index < messages.length - 1 && (
+                <div className="messageloop__item">
+                  <div className="messageloop__node">
+                    <span className={`${textColor} font-gotham font-bold text-2xl md:text-3xl`}>
+                      •
+                    </span>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
-        </div>
+        </div> 
       </div>
       
       <style jsx>{`
         .messageloop {
           position: relative;
           overflow-x: hidden;
-          --messageloop-gap: 32px;
+          --messageloop-gap: 80px;
           --messageloop-fadeColorAuto: #000000;
         }
 

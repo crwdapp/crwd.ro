@@ -118,7 +118,7 @@ export default function Home() {
             </div>
           </div>
         }
-        subtitle="Ai 50% reducere la 5 băuturi pe zi, în toate localurile partenere."
+        subtitle={`Ai 50% reducere la 5 băuturi pe zi,\nîn toate localurile partenere.`}
         backgroundAnimation={<MapAnimation />}
       >
         <LeadFormUser />
@@ -327,65 +327,70 @@ export default function Home() {
       </section>
 
       {/* Infinite Scrolling Messages */}
-      <section className="py-4 pb-8 sm:pb-12 md:pb-16 px-4 bg-black border-y border-white/10">
+      <section className="py-4 pb-4 px-4 bg-black border-y border-white/10">
         <MessageLoop 
           messages={[
             "Descoperă locuri noi în fiecare zi",
-            "Cafenele cu WiFi rapid", 
-            "Baruri și restaurante premium",
+            "Toate băuturile la jumatate de preț", 
+            "Baruri",
             "Evenimente exclusive",
-            "Viața nocturnă vibrantă",
-            "Întâlniri de business",
-            "Locuri perfecte pentru tine",
-            "Descoperă locuri noi în fiecare zi",
-            "Cafenele cu WiFi rapid", 
-            "Baruri și restaurante premium",
-            "Evenimente exclusive",
-            "Viața nocturnă vibrantă",
-            "Întâlniri de business",
-            "Locuri perfecte pentru tine"
+            "Viață de noapte",
+            "Muncă remote",
+            "Cafenele",
+            "Restaurante", 
+            "Puburi",
+            "Cluburi",
+            "Ieșire cu prieteni"
           ]}
           className="messageloop--fade"
         />
       </section>
 
       {/* Masonry Gallery Section */}
-      <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 md:pt-16 md:pb-24 lg:pt-8 lg:pb-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
-        <div className="container mx-auto max-w-7xl">
+      <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 md:pt-16 md:pb-24 lg:pt-8 lg:pb-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-black/10 relative overflow-hidden">
+        {/* Map Animation Background */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <MapAnimationWhite />
+        </div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        
+        <div className="container mx-auto max-w-7xl relative z-10">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="space-y-3 sm:space-y-4 mb-8">
               
-              <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
-                WHERE THE <br /> CRWD'S AT
+              <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none text-black">
+                WHERE THE <br /> CRWD&apos;S AT
               </h2>
             </div>
             <div className="max-w-3xl mx-auto">
-              <ScrollRevealWhite
+              <ScrollRevealBlack
                 baseOpacity={0.1}
                 enableBlur={true}
                 baseRotation={8}
                 blurStrength={15}
+                
               >
                 Adunăm toate evenimentele din oraș, ca tu să alegi ce ți se potrivește.
-              </ScrollRevealWhite>
+              </ScrollRevealBlack>
             </div>
           </div>
 
           {/* Masonry Gallery */}
-          <div className="h-[800px] sm:h-[900px] md:h-[1000px]">
+          <div className="h-[700px]  md:h-[600px] ">
             <Masonry
               items={[
                 {
                   id: "1",
                   img: "https://images.pexels.com/photos/844928/pexels-photo-844928.jpeg",
-                  height: 400,
+                  height: 500,
                   title: "DJ SET"
                 },
                 {
                   id: "2", 
                   img: "https://media.istockphoto.com/id/1405017797/vector/karaoke-night-neon-signboard-microphone-in-frame-talent-show-celebration-idea-song-singer.jpg?s=612x612&w=0&k=20&c=dGJfi_9KouUlq_UM8mBbivUzQeQsdBgB7QohNmGYwdM=",
-                  height: 250,
+                  height: 550,
                   title: "KARAOKE"
                 },
                 {
@@ -397,38 +402,38 @@ export default function Home() {
                 {
                   id: "4",
                   img: "https://img.freepik.com/free-photo/3d-music-related-scene_23-2151125037.jpg?semt=ais_hybrid&w=740&q=80",
-                  height: 350,
+                  height: 650,
                   title: "MUZICĂ LIVE"
                 },
                 {
                   id: "5",
                   img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwwKTpDP4BRvIrcTfQy4u6Y2WOreKmIOIeQfCl7WXowDRoHlmlBSxxCzFJpcqOfOWHA9c&usqp=CAU",
-                  height: 500,
+                  height: 600,
                   title: "MIERCUREA BERII"
                 },
                 {
                   id: "6",
                   img: "https://hips.hearstapps.com/hmg-prod/images/movie-night-ideas-1608824743.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*",
-                  height: 300,
+                  height: 600,
                   title: "MOVIE NIGHT"
                 },
                 {
                   id: "7",
                   img: "https://www.remindmagazine.com/wp-content/uploads/2024/05/wildcats-1014x570.jpg",
-                  height: 450,
+                  height: 650,
                   title: "NOSTALGIA"
                 },
                 {
                   id: "8",
                   img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWZGJ67YoqjUFeK60Bwdu8Saggfao5T_lBeQ&s",
-                  height: 400,
+                  height: 600,
                   title: "BEACH PARTY"
                 },
               
                 {
                   id: "9",
                   img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=900&fit=crop",
-                  height: 480,
+                  height: 680,
                   title: "FESTIVAL"
                 },
                
@@ -443,6 +448,12 @@ export default function Home() {
                   img: "https://www.jaqueslondon.co.uk/cdn/shop/collections/BoardGames-Collection-Header-Banner.jpg?v=1688051248",
                   height: 380,
                   title: "BOARDGAMES"
+                },
+                {
+                  id: "12",
+                  img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR11xsQPJXm6V2SIRBMRfit9iGdIxjxuB-IJw&s",
+                  height: 320,
+                  title: "WORKSHOPS"
                 }
               ]}
               ease="power3.out"
@@ -459,7 +470,44 @@ export default function Home() {
       </section>
 
       
-
+ {/* Partner CTA Section - BLACK with Light Rays */}
+ <section className="py-16 md:py-32 px-4 bg-black border-b border-white/10 relative overflow-hidden">
+        {/* Light Rays Background */}
+        <div className="absolute inset-0">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#ffffff"
+            raysSpeed={1.2}
+            lightSpread={0.6}
+            rayLength={2.5}
+            followMouse={true}
+            mouseInfluence={0.15}
+            noiseAmount={0.05}
+            distortion={0.03}
+            fadeDistance={2.0}
+            saturation={1.5}
+            className="custom-rays"
+          />
+        </div>
+        
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center">
+            <h2 className="text-6xl md:text-6xl lg:text-6xl font-gotham-condensed font-bold text-white mb-6 uppercase tracking-tight leading-none">
+              Ai un local?
+            </h2>
+            <p className="text-white/70 font-gotham text-lg md:text-xl mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
+              Alătură-te rețelei CRWD și oferă clienților tăi experiențe memorabile cu reduceri exclusive și evenimente speciale.
+            </p>
+            
+             {/* Partner CTA Button */}
+             <div className="flex justify-center">
+               <button className="aqua-glass inline-flex items-center justify-center font-semibold tracking-tight shadow-lg select-none px-8 py-4 text-lg rounded-2xl transition-transform duration-200 will-change-transform hover:scale-105 font-gotham font-bold uppercase tracking-wider text-white">
+                 Devino Partener
+               </button>
+             </div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -478,7 +526,7 @@ export default function Home() {
         
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-gotham-condensed font-bold text-white mb-8 md:mb-12 uppercase tracking-tight leading-none">
+            <h2 className="text-6xl md:text-6xl lg:text-7xl font-gotham-condensed font-bold text-white mb-8 md:mb-12 uppercase tracking-tight leading-none">
               Coming Soon
             </h2>
             <p className="text-white/80 font-gotham text-lg md:text-xl mb-12 md:mb-16 max-w-2xl mx-auto leading-relaxed">
@@ -518,49 +566,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partner CTA Section - BLACK with Light Rays */}
-      <section className="py-16 md:py-32 px-4 bg-black border-b border-white/10 relative overflow-hidden">
-        {/* Light Rays Background */}
-        <div className="absolute inset-0">
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#ffffff"
-            raysSpeed={1.2}
-            lightSpread={0.6}
-            rayLength={2.5}
-            followMouse={true}
-            mouseInfluence={0.15}
-            noiseAmount={0.05}
-            distortion={0.03}
-            fadeDistance={2.0}
-            saturation={1.5}
-            className="custom-rays"
-          />
-        </div>
-        
-        <div className="container mx-auto max-w-4xl relative z-10">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-gotham-condensed font-bold text-white mb-6 uppercase tracking-tight leading-none">
-              Ai un local?
-            </h2>
-            <p className="text-white/70 font-gotham text-lg md:text-xl mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
-              Alătură-te rețelei CRWD și oferă clienților tăi experiențe memorabile cu reduceri exclusive și evenimente speciale.
-            </p>
-            
-            {/* Partner CTA Button */}
-            <div className="flex justify-center">
-              <button className="aqua-glass inline-flex items-center justify-center font-semibold tracking-tight shadow-lg select-none px-8 md:px-12 py-4 md:py-5 text-white font-gotham-condensed font-bold text-lg md:text-xl uppercase tracking-wide transition-transform duration-200 will-change-transform hover:scale-105 rounded-2xl">
-                Devino Partener
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* FAQ - WHITE */}
       <section className="py-16 md:py-32 px-4 bg-white border-b border-black/10">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-gotham-condensed font-bold text-black mb-12 md:mb-20 uppercase tracking-tight">
+          <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl f font-bold uppercase tracking-tight leading-none font-special-gothic-condensed font-bold text-black mb-12 md:mb-20 uppercase tracking-tight">
             Întrebări frecvente
           </h2>
           <div className="space-y-px">
@@ -577,7 +588,7 @@ export default function Home() {
           <div className="border-2 border-black p-8 md:p-12 lg:p-16 bg-white relative overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-gotham-condensed font-bold text-black text-center mb-6 uppercase tracking-tight leading-none">
+              <h2 className="text-3xl md:text-4xl lg:text-6xl font-special-gothic-condensed font-bold text-black text-center mb-6 uppercase tracking-tight leading-none">
                 Pregătit să descoperi noi locuri?
               </h2>
               <p className="text-black/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Înscrie-te pe waitlist și primește early access la CRWD!</p>
