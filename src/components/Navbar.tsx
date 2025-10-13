@@ -13,41 +13,41 @@ export default function Navbar() {
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <MapAnimation />
       </div>
-      
-      <div className="container mx-auto max-w-7xl px-4 relative z-10">
-        <div className="flex items-center justify-between h-16 md:h-20">
+
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
           {/* Logo - Centered on mobile, left on desktop */}
-          <Link 
-            href="/" 
-            className="text-5xl md:text-4xl lg:text-5xl font-gotham-condensed font-bold text-white tracking-tight hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300"
+          <Link
+            href="/"
+            className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-gotham-condensed font-bold text-white tracking-tight hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300"
           >
             CRWD
           </Link>
 
           {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center justify-center space-x-8 lg:space-x-12">
+          <div className="hidden md:flex items-center justify-center space-x-6 lg:space-x-10">
             <Link
               href="/parteneri"
-              className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-2xl md:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
+              className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl md:text-2xl lg:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
             >
               Parteneri
             </Link>
             <Link
               href="/contact"
-              className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-2xl md:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
+              className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl md:text-2xl lg:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
             >
               Contact
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-white hover:text-white/70 transition-colors p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             <svg
-              className="h-6 w-6"
+              className="h-6 w-6 sm:h-7 sm:w-7"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -70,14 +70,14 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4 items-center">
               <Link
                 href="/parteneri"
-                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-2xl md:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
+                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl sm:text-2xl font-gotham-condensed font-bold tracking-tight uppercase"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Parteneri
               </Link>
               <Link
                 href="/contact"
-                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-2xl md:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
+                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl sm:text-2xl font-gotham-condensed font-bold tracking-tight uppercase"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact

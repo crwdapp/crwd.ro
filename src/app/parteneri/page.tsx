@@ -8,7 +8,6 @@ import LeadFormVenue from "@/components/LeadFormVenue";
 import MagneticPeopleAnimation from "@/components/MagneticPeopleAnimation";
 import TiltedCard from "@/components/TiltedCard";
 import MessageLoop from "@/components/MessageLoop";
-import CircularGallery from "@/components/CircularGallery";
 
 const benefits = [
   {

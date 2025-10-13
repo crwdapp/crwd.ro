@@ -63,13 +63,19 @@ const config: Config = {
   				'Inter',
   				'system-ui',
   				'sans-serif'
+  			],
+  			'special-gothic-condensed': [
+  				'var(--font-special-gothic-condensed)',
+  				'Inter',
+  				'system-ui',
+  				'sans-serif'
   			]
   		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
+		borderRadius: {
+			lg: 'var(--radius)',
+			md: 'calc(var(--radius) - 2px)',
+			sm: 'calc(var(--radius) - 4px)'
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

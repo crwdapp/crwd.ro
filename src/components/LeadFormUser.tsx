@@ -47,11 +47,11 @@ export default function LeadFormUser() {
 
   if (state === "success") {
     return (
-      <LiquidGlass tone="aqua" elevation={2} border="glow" className="p-8 text-center rounded-2xl">
-        <div className="text-white text-xl font-gotham-condensed font-bold mb-3">
+      <LiquidGlass tone="aqua" elevation={2} border="glow" className="p-6 sm:p-8 text-center rounded-2xl">
+        <div className="text-white text-lg sm:text-xl font-gotham font-bold mb-2 sm:mb-3">
           ✓ Mulțumim!
         </div>
-        <p className="text-white/80 text-sm font-gotham">
+        <p className="text-white/80 text-xs sm:text-sm font-gotham">
           Verifică emailul pentru confirmare. Ți-am trimis un link pentru a valida adresa.
         </p>
       </LiquidGlass>
@@ -59,10 +59,10 @@ export default function LeadFormUser() {
   }
 
   return (
-    <LiquidGlass tone="neutral" elevation={2} className="p-6 md:p-8 rounded-2xl max-w-md mx-auto">
-      <form onSubmit={onSubmit} className="space-y-4">
+    <LiquidGlass tone="neutral" elevation={2} className="p-4 sm:p-6 md:p-8 rounded-2xl max-w-md mx-auto">
+      <form onSubmit={onSubmit} className="space-y-3 sm:space-y-4">
         <div>
-          <label htmlFor="name" className="block text-xs font-gotham-condensed font-semibold text-white mb-2 uppercase tracking-wider">
+          <label htmlFor="name" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
             Nume *
           </label>
           <input
@@ -71,12 +71,12 @@ export default function LeadFormUser() {
             name="name"
             required
             placeholder="Numele tău"
-            className="w-full px-4 py-3 rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
+            className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
           />
         </div>
 
         <div>
-        <label htmlFor="email" className="block text-xs font-gotham-condensed font-semibold text-white mb-2 uppercase tracking-wider">
+        <label htmlFor="email" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
           Email *
         </label>
         <input
@@ -85,18 +85,18 @@ export default function LeadFormUser() {
           name="email"
           required
           placeholder="nume@exemplu.ro"
-          className="w-full px-4 py-3 rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
         />
       </div>
 
       <div>
-        <label htmlFor="city" className="block text-xs font-gotham-condensed font-semibold text-white mb-2 uppercase tracking-wider">
+        <label htmlFor="city" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
           Oraș
         </label>
         <select
           id="city"
           name="city"
-          className="w-full px-4 py-3 rounded-none bg-black border border-white/30 text-white focus:outline-none focus:border-white transition-colors font-gotham"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white focus:outline-none focus:border-white transition-colors font-gotham"
         >
           <option value="">Alege orașul...</option>
           <option value="București">București</option>
@@ -114,15 +114,15 @@ export default function LeadFormUser() {
         </select>
       </div>
 
-      <div className="flex items-start">
+      <div className="flex items-start pt-1">
         <input
           type="checkbox"
           id="marketing_consent"
           name="marketing_consent"
           required
-          className="mt-1 h-4 w-4 rounded-none border-white/30 bg-black text-white focus:ring-white"
+          className="mt-1 h-4 w-4 rounded-none border-white/30 bg-black text-white focus:ring-white flex-shrink-0"
         />
-        <label htmlFor="marketing_consent" className="ml-2 text-xs text-white/70 font-gotham">
+        <label htmlFor="marketing_consent" className="ml-2 text-xs text-white/70 font-gotham leading-relaxed">
           Sunt de acord cu{" "}
           <a href="/politica-confidentialitate" className="text-white underline hover:text-white/70">
             prelucrarea datelor
@@ -142,7 +142,7 @@ export default function LeadFormUser() {
       />
 
       {errorMessage && (
-        <div className="rounded-none border border-white p-4 text-sm text-white/70 font-gotham">
+        <div className="rounded-none border border-white p-3 sm:p-4 text-xs sm:text-sm text-white/70 font-gotham">
           {errorMessage}
         </div>
       )}
@@ -154,7 +154,7 @@ export default function LeadFormUser() {
           tone="aqua"
           elevation={3}
           size="lg"
-          className="font-gotham-condensed font-bold uppercase tracking-wider text-white"
+          className="font-gotham font-bold uppercase tracking-wider text-white text-sm sm:text-base"
         >
           {state === "loading" ? "Se trimite..." : "Anunță-mă la lansare"}
         </GlassButton>

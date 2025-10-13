@@ -21,6 +21,7 @@
 :root {
   --font-gotham-condensed: 'Gotham Condensed', 'Inter', system-ui, sans-serif;
   --font-gotham: 'Gotham', 'Inter', system-ui, sans-serif;
+  --font-special-gothic-condensed: 'Special Gothic Condensed', 'Gotham Condensed', 'Inter', system-ui, sans-serif;
   --accent: #ffffff;
   --muted: #666666;
 }
@@ -56,6 +57,45 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+}
+
+/* Special Gothic Condensed Font Face */
+@font-face {
+  font-family: 'Special Gothic Condensed';
+  src: url('/fonts/SpecialGothicCondensedOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Special Gothic Condensed Letter Spacing Presets */
+.font-special-gothic-condensed {
+  letter-spacing: 0.02em; /* Default - slight spacing */
+}
+
+.font-special-gothic-condensed-tight {
+  font-family: var(--font-special-gothic-condensed);
+  letter-spacing: -0.02em; /* Tight - condensed look */
+}
+
+.font-special-gothic-condensed-normal {
+  font-family: var(--font-special-gothic-condensed);
+  letter-spacing: 0em; /* Normal - no spacing */
+}
+
+.font-special-gothic-condensed-wide {
+  font-family: var(--font-special-gothic-condensed);
+  letter-spacing: 0.05em; /* Wide - airy spacing */
+}
+
+.font-special-gothic-condensed-wider {
+  font-family: var(--font-special-gothic-condensed);
+  letter-spacing: 0.1em; /* Wider - very airy */
+}
+
+.font-special-gothic-condensed-widest {
+  font-family: var(--font-special-gothic-condensed);
+  letter-spacing: 0.15em; /* Widest - maximum spacing */
 }
 
 @layer base {
@@ -634,8 +674,8 @@ html {
 }
 
 .scroll-reveal-black-text {
-  font-size: clamp(2.2rem, 6vw, 3rem);
-  line-height: 1.5;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.2;
   font-weight: 600;
   color: #000000 !important;
 }
@@ -643,6 +683,106 @@ html {
 .scroll-reveal-black .word {
   display: inline-block;
   color: #000000 !important;
+}
+
+/* ========================================
+   TILTED CARD STYLES
+   ======================================== */
+
+.tilted-card-figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilted-card-mobile-alert {
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tilted-card-mobile-alert {
+    display: block;
+  }
+  .tilted-card-caption {
+    display: none;
+  }
+}
+
+.tilted-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tilted-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  border-radius: 15px;
+  will-change: transform;
+  transform: translateZ(0);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilted-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(30px);
+}
+
+.tilted-card-caption {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #2d2d2d;
+  opacity: 0;
+  z-index: 3;
+}
+
+/* ========================================
+   MASONRY STYLES
+   ======================================== */
+
+.masonry-container {
+  min-height: 600px;
+}
+
+.masonry-item {
+  transition: transform 0.3s ease;
+}
+
+.masonry-item:hover {
+  z-index: 10;
+}
+
+.masonry-image {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.masonry-image:hover {
+  box-shadow: 0px 20px 60px -10px rgba(0,0,0,0.3);
 }
 
 /* ========================================
@@ -654,8 +794,8 @@ html {
 }
 
 .scroll-reveal-white-text {
-  font-size: clamp(2.2rem, 6vw, 3rem);
-  line-height: 1.5;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.2;
   font-weight: 600;
   color: #ffffff !important;
 }
