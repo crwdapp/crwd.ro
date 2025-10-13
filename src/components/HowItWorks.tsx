@@ -32,10 +32,10 @@ export default function HowItWorks({ steps, title = "Cum funcționează?" }: How
 
               {/* Step Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-gotham-condensed font-bold text-white mb-3 uppercase tracking-wide">
+                <h3>
                   {step.title}
                 </h3>
-                <p className="text-white/50 font-gotham text-sm leading-relaxed">
+                <p>
                   {step.description}
                 </p>
               </div>

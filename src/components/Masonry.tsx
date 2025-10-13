@@ -84,8 +84,8 @@ const Masonry: React.FC<MasonryProps> = ({
   colorShiftOnHover = false
 }) => {
   const columns = useMedia(
-    ['(min-width:1500px)', '(min-width:1000px)', '(min-width:600px)', '(min-width:400px)'],
-    [5, 4, 3, 2],
+    ['(min-width:1200px)', '(min-width:768px)', '(min-width:480px)'],
+    [4, 3, 2],
     1
   );
 
@@ -128,14 +128,15 @@ const Masonry: React.FC<MasonryProps> = ({
   const grid = useMemo<GridItem[]>(() => {
     if (!width) return [];
     const colHeights = new Array(columns).fill(0);
-    const gap = 16;
+    const gap = columns === 1 ? 8 : 12; // Smaller gap on mobile
     const totalGaps = (columns - 1) * gap;
     const columnWidth = (width - totalGaps) / columns;
 
     return items.map(child => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      const height = child.height / 2;
+      // Adjust height for mobile - make items smaller on mobile
+      const height = columns === 1 ? child.height / 3 : child.height / 2;
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -215,7 +216,7 @@ const Masonry: React.FC<MasonryProps> = ({
   };
 
   return (
-    <div ref={containerRef} className="masonry-container relative w-full h-full">
+    <div ref={containerRef} className="masonry-container relative w-full h-full min-h-[400px] sm:min-h-[600px]">
       {grid.map(item => (
         <div
           key={item.id}
@@ -233,9 +234,9 @@ const Masonry: React.FC<MasonryProps> = ({
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300" />
             
             {/* Text overlay */}
-            <div className="absolute inset-0 flex items-center justify-center text-white">
+            <div className="absolute inset-0 flex items-center justify-center text-white p-2">
               {item.title && (
-                <h3 className="text-2xl sm:text-3xl font-special-gothic-condensed font-bold uppercase tracking-wider text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-special-gothic-condensed font-bold uppercase tracking-wider text-center leading-tight">
                   {item.title}
                 </h3>
               )}

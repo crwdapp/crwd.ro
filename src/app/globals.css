@@ -806,6 +806,25 @@ html {
 }
 
 /* ========================================
+   BLUR TEXT STYLES
+   ======================================== */
+
+.blur-text {
+  display: inline-block;
+  text-align: center;
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  font-family: inherit;
+}
+
+.blur-text span {
+  display: inline-block;
+  will-change: transform, filter, opacity;
+}
+
+/* ========================================
    SPOTLIGHT CARD STYLES
    ======================================== */
 

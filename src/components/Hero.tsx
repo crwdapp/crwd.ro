@@ -24,7 +24,7 @@ export default function Hero({ title, subtitle, children, showMockup = false, ba
             <h1 className="mb-6 sm:mb-8 leading-none tracking-tight">
               {title}
             </h1>
-            <p className="md:text-lg lg:text-xl text-white mb-8 sm:mb-10 md:mb-12 font-gotham leading-relaxed max-w-xl mx-auto">
+            <p className=" text-white mb-8 sm:mb-10 md:mb-12 font-gotham leading-relaxed max-w-xl mx-auto">
               {subtitle}
             </p>
           </div>

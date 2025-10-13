@@ -22,6 +22,7 @@ import TextType from "@/components/TextType";
 import ScrollReveal from "@/components/ScrollReveal";
 import RotatingText from "@/components/RotatingText";
 import Masonry from "@/components/Masonry";
+import BlurText from "@/components/BlurText";
 
 const benefits = [
   {
@@ -64,7 +65,7 @@ const steps = [
     icon: "📱"
   },
   {
-    title: "Happy Hour Every Hour",
+    title: "Happy Hour\nEvery Hour",
     description: "Reduceri la băuturile tale preferate, pe tot parcursul zilei, in fiecare zi.",
     icon: "🍻"
   },
@@ -100,11 +101,11 @@ export default function Home() {
       <Hero
         title={
           <div className="text-center">
-            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-special-gothic-condensed font-bold text-white uppercase tracking-tight leading-none">5 băuturi</div>
+            <div className="text-7xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-special-gothic-condensed font-bold text-white uppercase tracking-tight leading-none">5 băuturi</div>
             <div className="flex justify-center mt-2 sm:mt-3 md:mt-4">
               <RotatingText
-                texts={['pe zi', 'în fiecare zi']}
-                mainClassName="inline-block text-black bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 backdrop-blur-md border border-green-700/90 font-special-gothic-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
+                texts={['pe zi', 'in fiecare zi']}
+                mainClassName="inline-block text-black bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 backdrop-blur-md border border-green-700/90 font-special-gothic-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -124,7 +125,7 @@ export default function Home() {
       </Hero>
 
       {/* How It Works - LIQUID GLASS CARDS */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white border-b border-black/10 relative overflow-hidden">
+      <section className="py-20 sm:py-24 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 bg-white border-b border-black/10 relative overflow-hidden">
         {/* Map Animation Background */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <MapAnimationWhite />
@@ -135,14 +136,14 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-special-gothic-condensed font-bold text-black mb-4 sm:mb-6 uppercase tracking-tight">
-              Cum Funcționează
+            <h2 className="text-black text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none" >
+              JOIN THE CRWD
             </h2>
            
           </div>
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8">
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -175,11 +176,27 @@ export default function Home() {
                       <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 text-center">
                         {step.icon}
                       </div>
-                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-special-gothic-condensed font-bold text-black mb-2 sm:mb-3 uppercase tracking-wide">
-                        {step.title}
+                      <h3 className="text-2xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-2 sm:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
+                        textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+                      }}>
+                        <BlurText
+                          text={step.title}
+                          delay={100}
+                          animateBy="words"
+                          direction="top"
+                          className="text-center"
+                        />
                       </h3>
-                      <p className="text-black/70 font-gotham  text-xs sm:text-sm md:text-base leading-relaxed">
-                        {step.description}
+                      <p className="text-white font-gotham text-sm md:text-base leading-relaxed text-center" style={{
+                        textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+                      }}>
+                        <BlurText
+                          text={step.description}
+                          delay={150}
+                          animateBy="words"
+                          direction="bottom"
+                          className="text-center"
+                        />
                       </p>
                     </div>
                   }
@@ -201,7 +218,7 @@ export default function Home() {
                 <p className="text-black/60 font-gotham text-xs sm:text-sm uppercase tracking-wider">
                   Descoperă
                 </p>
-                <h2 className="text-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
+                <h2 className="text-black text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
                   CRWD By Day
                 </h2>
               </div>
@@ -212,9 +229,9 @@ export default function Home() {
                   baseRotation={8}
                   blurStrength={15}
                 >
-                  În timpul zilei, CRWD îți găsește cele mai bune locuri pentru cafea,
-                  lucru remote și întâlniri de business. Descoperă cafenele cu WiFi rapid,
-                  atmosferă perfectă pentru productivitate și băuturi de calitate.
+                  Ziua e lungă, dar orașul are locuri care te încarcă.
+                  Cafea, matcha, smoothie, fresh - chiar și un prosecco, dacă ai chef.
+                  Cu varianta de zi a aplicației, până și munca remote devine o scuză bună să ieși din casă.
                 </ScrollRevealBlack>
               </div>
               
@@ -287,7 +304,7 @@ export default function Home() {
                 <p className="text-white/60 font-gotham text-xs sm:text-sm uppercase tracking-wider">
                   Explorează
                 </p>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
+                <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
                   CRWD By Night
                 </h2>
               </div>
@@ -298,9 +315,9 @@ export default function Home() {
                   baseRotation={8}
                   blurStrength={15}
                 >
-                  Când seara coboară, CRWD îți dezvăluie lumea nocturnă a orașului.
-                  De la baruri trendy și restaurante fine dining la cluburi și evenimente
-                  exclusive - descoperă unde se întâmplă viața noaptea.
+                  Când se lasă seara, orașul prinde viață.
+                  Baruri, puburi, cluburi și evenimente - toate la jumătate de preț.
+                  Află unde e vibe-ul și ieși mai des, cheltuind mai puțin.
                 </ScrollRevealWhite>
               </div>
               
@@ -339,8 +356,8 @@ export default function Home() {
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="space-y-3 sm:space-y-4 mb-8">
               
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
-                WHERE THE CRWD'S AT
+              <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
+                WHERE THE <br /> CRWD'S AT
               </h2>
             </div>
             <div className="max-w-3xl mx-auto">
