@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* Brand */}
           <div className="text-center lg:text-left">
-            <h3 className="text-2xl md:text-3xl font-gotham-condensed font-bold text-white mb-3 md:mb-4">
+            <h3 className="text-6xl md:text-6xl font-gotham-condensed font-bold text-white mb-3 md:mb-4">
               CRWD
             </h3>
             <p className="text-white/50 text-sm md:text-base font-gotham max-w-xs mx-auto lg:mx-0">

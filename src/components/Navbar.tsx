@@ -19,7 +19,7 @@ export default function Navbar() {
           {/* Logo - Centered on mobile, left on desktop */}
           <Link
             href="/"
-            className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-gotham-condensed font-bold text-white tracking-tight hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300"
+            className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-gotham-condensed font-bold text-white tracking-tight hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300"
           >
             CRWD
           </Link>

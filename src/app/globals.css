@@ -885,3 +885,18 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* ========================================
+   SCROLL FLOAT STYLES
+   ======================================== */
+
+.scroll-float {
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-float .word {
+  display: inline-block;
+  will-change: opacity, transform;
+  transform-origin: 50% 0%;
+}

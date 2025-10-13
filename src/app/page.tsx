@@ -23,51 +23,30 @@ import ScrollReveal from "@/components/ScrollReveal";
 import RotatingText from "@/components/RotatingText";
 import Masonry from "@/components/Masonry";
 import BlurText from "@/components/BlurText";
+import ScrollFloat from "@/components/ScrollFloat";
 
-const benefits = [
-  {
-    icon: "🎯",
-    title: "Recomandări personalizate",
-    description: "Descoperă locuri care se potrivesc perfect preferințelor tale și stării tale de moment.",
-  },
-  {
-    icon: "🎁",
-    title: "Oferte exclusive",
-    description: "Acces la reduceri și oferte speciale disponibile doar pentru membrii CRWD.",
-  },
-  {
-    icon: "🌟",
-    title: "Experiențe curate",
-    description: "Fiecare local e verificat și evaluat de comunitatea noastră pentru a-ți garanta calitatea.",
-  },
-  {
-    icon: "🤝",
-    title: "Networking spontan",
-    description: "Conectează-te cu oameni care împărtășesc aceleași interese în locuri care vă plac amândurora.",
-  },
-];
+
 
 const steps = [
   {
     title: "Descoperă",
     description: "Descoperă cele mai tari localuri din oraș. Cafenele, restaurante, baruri, într-o singură aplicație.",
-    icon: "🔍"
+    icon: "/images/discover.png"
   },
   {
     title: "Evenimente",
     description: "Gata cu \"Ce facem diseară?\" Ai toate evenimentele din zona ta, într-un singur loc.",
-
-    icon: "🎉"
+    icon: "/images/events.png"
   },
   {
     title: "Scan & Order",
     description: "Scanezi NFC-ul din localurile partenere și comandă direct din aplicație.",
-    icon: "📱"
+    icon: "/images/scan-code.png"
   },
   {
     title: "Happy Hour\nEvery Hour",
     description: "Reduceri la băuturile tale preferate, pe tot parcursul zilei, in fiecare zi.",
-    icon: "🍻"
+    icon: "/images/happyhour.png"
   },
 ];
 
@@ -101,11 +80,11 @@ export default function Home() {
       <Hero
         title={
           <div className="text-center">
-            <div className="text-7xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-special-gothic-condensed font-bold text-white uppercase tracking-tight leading-none">5 băuturi</div>
+            <div className="text-8xl sm:text-8xl md:text-7xl lg:text-8xl xl:text-9xl font-gotham-condensed font-bold text-white uppercase tracking-tight leading-none">5 bauturi</div>
             <div className="flex justify-center mt-2 sm:mt-3 md:mt-4">
               <RotatingText
                 texts={['pe zi', 'in fiecare zi']}
-                mainClassName="inline-block text-black bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 backdrop-blur-md border border-green-700/90 font-special-gothic-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
+                mainClassName="inline-block text-black bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 backdrop-blur-md border-2 border-green-700/90 font-gotham-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -136,9 +115,17 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="text-black text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none" >
+            <ScrollFloat
+              animationDuration={1.2}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-center"
+              textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+            >
               JOIN THE CRWD
-            </h2>
+            </ScrollFloat>
            
           </div>
 
@@ -173,9 +160,6 @@ export default function Home() {
                   displayOverlayContent={true}
                   overlayContent={
                     <div className="absolute inset-0 aqua-glass rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center h-full">
-                      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 sm:mb-4 text-center">
-                        {step.icon}
-                      </div>
                       <h3 className="text-2xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-2 sm:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
@@ -187,6 +171,15 @@ export default function Home() {
                           className="text-center"
                         />
                       </h3>
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-3 sm:mb-4 text-center flex items-center justify-center">
+                        <Image
+                          src={step.icon}
+                          alt={step.title}
+                          width={112}
+                          height={112}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
                       <p className="text-white font-gotham text-sm md:text-base leading-relaxed text-center" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
@@ -216,11 +209,19 @@ export default function Home() {
             <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-black/60 font-gotham text-xs sm:text-sm uppercase tracking-wider">
-                  Descoperă
+                  Descoperi
                 </p>
-                <h2 className="text-black text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center lg:text-left"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+                >
                   CRWD By Day
-                </h2>
+                </ScrollFloat>
               </div>
               <div className="max-w-xl mx-auto lg:mx-0">
                 <ScrollRevealBlack
@@ -302,11 +303,19 @@ export default function Home() {
             <div className="space-y-6 sm:space-y-8 order-1 lg:order-2 text-center lg:text-left">
               <div className="space-y-3 sm:space-y-4">
                 <p className="text-white/60 font-gotham text-xs sm:text-sm uppercase tracking-wider">
-                  Explorează
+                  Exlporezi
                 </p>
-                <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none">
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center lg:text-left"
+                  textClassName="text-white font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+                >
                   CRWD By Night
-                </h2>
+                </ScrollFloat>
               </div>
               <div className="max-w-xl mx-auto lg:mx-0">
                 <ScrollRevealWhite
@@ -360,9 +369,17 @@ export default function Home() {
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="space-y-3 sm:space-y-4 mb-8">
               
-              <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-gotham-condensed font-bold uppercase tracking-tight leading-none text-black">
-                WHERE THE <br /> CRWD&apos;S AT
-              </h2>
+              <ScrollFloat
+                animationDuration={1.2}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-center"
+                textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+              >
+                WHERE THE CRWD&apos;S AT
+              </ScrollFloat>
             </div>
             <div className="max-w-3xl mx-auto">
               <ScrollRevealBlack
@@ -378,7 +395,7 @@ export default function Home() {
           </div>
 
           {/* Masonry Gallery */}
-          <div className="h-[700px]  md:h-[600px] ">
+          <div className="h-[750px]  md:h-[600px] ">
             <Masonry
               items={[
                 {
@@ -492,9 +509,17 @@ export default function Home() {
         
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center">
-            <h2 className="text-6xl md:text-6xl lg:text-6xl font-gotham-condensed font-bold text-white mb-6 uppercase tracking-tight leading-none">
+            <ScrollFloat
+              animationDuration={1.2}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-center"
+              textClassName="text-white font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl md:text-6xl lg:text-7xl"
+            >
               Ai un local?
-            </h2>
+            </ScrollFloat>
             <p className="text-white/70 font-gotham text-lg md:text-xl mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
               Alătură-te rețelei CRWD și oferă clienților tăi experiențe memorabile cu reduceri exclusive și evenimente speciale.
             </p>
@@ -526,9 +551,17 @@ export default function Home() {
         
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center">
-            <h2 className="text-6xl md:text-6xl lg:text-7xl font-gotham-condensed font-bold text-white mb-8 md:mb-12 uppercase tracking-tight leading-none">
+            <ScrollFloat
+              animationDuration={1.2}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-center"
+              textClassName="text-white font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl md:text-6xl lg:text-7xl"
+            >
               Coming Soon
-            </h2>
+            </ScrollFloat>
             <p className="text-white/80 font-gotham text-lg md:text-xl mb-12 md:mb-16 max-w-2xl mx-auto leading-relaxed">
               Descarcă aplicația CRWD și descoperă cele mai bune locuri din orașul tău cu reduceri exclusive și experiențe memorabile.
             </p>
@@ -569,12 +602,38 @@ export default function Home() {
      
 
       {/* FAQ - WHITE */}
-      <section className="py-16 md:py-32 px-4 bg-white border-b border-black/10">
+      <section className="py-8 md:py-16 sm:py-6 px-4 bg-white border-b border-black/10">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl f font-bold uppercase tracking-tight leading-none font-special-gothic-condensed font-bold text-black mb-12 md:mb-20 uppercase tracking-tight">
-            Întrebări frecvente
-          </h2>
-          <div className="space-y-px">
+           {/* Mobile version - two lines */}
+           <div className="block sm:hidden">
+             <ScrollFloat
+               animationDuration={1.2}
+               ease="back.inOut(2)"
+               scrollStart="center bottom+=50%"
+               scrollEnd="bottom bottom-=40%"
+               stagger={0.03}
+               containerClassName="text-center"
+               textClassName="text-black font-gotham-condensed  uppercase py-1 leading-none text-6xl pb-0"
+             >
+               intrebari frecvente
+             </ScrollFloat>
+           </div>
+           
+           {/* Desktop version - one line */}
+           <div className="hidden sm:block">
+             <ScrollFloat
+               animationDuration={1.2}
+               ease="back.inOut(2)"
+               scrollStart="center bottom+=50%"
+               scrollEnd="bottom bottom-=40%"
+               stagger={0.03}
+               containerClassName="text-center"
+               textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+             >
+               intrebari frecvente
+             </ScrollFloat>
+           </div>
+          <div className="space-y-px pt-8">
             {faqItems.map((item, index) => (
               <FAQ key={index} items={[item]} />
             ))}
@@ -583,14 +642,24 @@ export default function Home() {
       </section>
 
       {/* Final CTA - WHITE */}
-      <section id="final-cta" className="py-16 md:py-32 px-4 bg-white">
+      <section id="final-cta" className="py-16 md:py-16 px-4 bg-white">
         <div className="container mx-auto max-w-3xl">
-          <div className="border-2 border-black p-8 md:p-12 lg:p-16 bg-white relative overflow-hidden">
+          <div className="p-8 md:p-12 lg:p-16 bg-white relative overflow-hidden" style={{
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+          }}>
             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-special-gothic-condensed font-bold text-black text-center mb-6 uppercase tracking-tight leading-none">
-                Pregătit să descoperi noi locuri?
-              </h2>
+              <ScrollFloat
+                animationDuration={1.2}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                containerClassName="text-center"
+                textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl md:text-4xl lg:text-6xl"
+              >
+                VREI PRIMA LUNĂ GRATUITĂ?
+              </ScrollFloat>
               <p className="text-black/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Înscrie-te pe waitlist și primește early access la CRWD!</p>
               <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_button]:bg-black [&_button]:text-white [&_button:hover]:bg-black/90 [&_a]:text-black [&_div[class*='border-white']]:border-black">
                 <LeadFormUser />
