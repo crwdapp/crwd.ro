@@ -16,16 +16,16 @@ export default function Navbar() {
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
-          {/* Logo - Centered on mobile, left on desktop */}
+          {/* Logo - Left side */}
           <Link
             href="/"
-            className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-gotham-condensed font-bold text-white tracking-tight hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300"
+            className="text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-gotham-condensed font-bold text-white tracking-tight hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300"
           >
             CRWD
           </Link>
 
-          {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center justify-center space-x-6 lg:space-x-10">
+          {/* Desktop Menu - Right side */}
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
             <Link
               href="/parteneri"
               className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl md:text-2xl lg:text-3xl font-gotham-condensed font-bold tracking-tight uppercase"
@@ -40,7 +40,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Right side */}
           <button
             className="md:hidden text-white hover:text-white/70 transition-colors p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

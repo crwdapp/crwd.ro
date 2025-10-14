@@ -29,7 +29,7 @@ import ScrollFloat from "@/components/ScrollFloat";
 
 const steps = [
   {
-    title: "Descoperă",
+    title: "Descoperi localuri noi",
     description: "Descoperă cele mai tari localuri din oraș. Cafenele, restaurante, baruri, într-o singură aplicație.",
     icon: "/images/discover.png"
   },
@@ -40,7 +40,7 @@ const steps = [
   },
   {
     title: "Scan & Order",
-    description: "Scanezi NFC-ul din localurile partenere și comandă direct din aplicație.",
+    description: "Scaneză NFC-ul din localurile partenere și comandă direct din aplicație.",
     icon: "/images/scan-code.png"
   },
   {
@@ -53,23 +53,23 @@ const steps = [
 const faqItems = [
   {
     question: "Când va fi lansat CRWD?",
-    answer: "Lucrăm intens la finalizarea platformei. Înscrie-te pe waitlist pentru a fi printre primii care vor avea acces!",
+    answer: "Lucrăm intens la finalizarea platformei. Înscrie-te pe waitlist pentru o lună gratuită la lansare!",
   },
   {
-    question: "Este gratuit?",
-    answer: "Da! CRWD este gratuit pentru utilizatori. Vei avea acces la toate funcțiile de bază și la ofertele exclusive ale partenerilor noștri.",
+    question: "Ce băuturi sunt incluse în reducere?",
+    answer: "Toate băuturile din meniu, setate de localurile partenere — de la cafea și fresh-uri, până la bere, vin, cocktailuri sau long drinks.",
   },
   {
     question: "În ce orașe va fi disponibil?",
-    answer: "Inițial vom lansa în București și Cluj-Napoca, apoi ne extindem rapid în alte orașe majore din România.",
+    answer: "Inițial vom lansa în București și Constanța, apoi ne extindem rapid în alte orașe majore din România.",
   },
   {
-    question: "Cum funcționează ofertele exclusive?",
-    answer: "Partenerii noștri oferă reduceri și promoții speciale pentru membrii CRWD. Vei vedea ofertele disponibile în aplicație și le vei putea accesa direct la local.",
+    question: "De ce pot comanda doar 5 băuturi?",
+    answer: "Pentru că orașul merită explorat. Bei o cafea în centru, o limonadă după masă și un cocktail pe rooftop.",
   },
   {
     question: "Cum vă asigurați de calitatea localurilor?",
-    answer: "Fiecare local partener trece printr-un proces de verificare. Plus, comunitatea noastră evaluează și recomandă cele mai bune experiențe.",
+    answer: "Fiecare local partener trece printr-un proces de verificare. Plus, comunitatea noastră evaluează și recomandă cele mai bune experiențe. Tu ne ceri, noi aducem.",
   },
 ];
 
@@ -100,7 +100,9 @@ export default function Home() {
         subtitle={`Ai 50% reducere la 5 băuturi pe zi,\nîn toate localurile partenere.`}
         backgroundAnimation={<MapAnimation />}
       >
-        <LeadFormUser />
+        <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_button]:bg-black [&_button]:text-white [&_button:hover]:bg-black/90 [&_a]:text-black [&_div[class*='border-white']]:border-black">
+          <LeadFormUser />
+        </div>
       </Hero>
 
       {/* How It Works - LIQUID GLASS CARDS */}
@@ -114,7 +116,10 @@ export default function Home() {
 
         <div className="container mx-auto max-w-7xl relative z-10">
           {/* Header */}
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <p className="text-black/60 font-gotham text-xs text-center sm:text-sm uppercase tracking-wider">
+                  WHY YOU SHOULD
+                </p>
+          <div className="text-center mb-12 sm:mb-16 md:mb-20 mt-0">
             <ScrollFloat
               animationDuration={1.2}
               ease="back.inOut(2)"
@@ -369,17 +374,46 @@ export default function Home() {
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="space-y-3 sm:space-y-4 mb-8">
               
-              <ScrollFloat
-                animationDuration={1.2}
-                ease="back.inOut(2)"
-                scrollStart="center bottom+=50%"
-                scrollEnd="bottom bottom-=40%"
-                stagger={0.03}
-                containerClassName="text-center"
-                textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
-              >
-                WHERE THE CRWD&apos;S AT
-              </ScrollFloat>
+              {/* Mobile version - two lines */}
+              <div className="block sm:hidden">
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+                >
+                  WHERE THE 
+                </ScrollFloat>
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center -mt-4"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+                >
+                  CRWD&apos;S AT
+                </ScrollFloat>
+              </div>
+              
+              {/* Desktop version - one line */}
+              <div className="hidden sm:block">
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+                >
+                  WHERE THE CRWD&apos;S AT
+                </ScrollFloat>
+              </div>
             </div>
             <div className="max-w-3xl mx-auto">
               <ScrollRevealBlack
@@ -526,9 +560,9 @@ export default function Home() {
             
              {/* Partner CTA Button */}
              <div className="flex justify-center">
-               <button className="aqua-glass inline-flex items-center justify-center font-semibold tracking-tight shadow-lg select-none px-8 py-4 text-lg rounded-2xl transition-transform duration-200 will-change-transform hover:scale-105 font-gotham font-bold uppercase tracking-wider text-white">
+               <a href="/parteneri" className="aqua-glass inline-flex items-center justify-center font-semibold tracking-tight shadow-lg select-none px-8 py-4 text-lg rounded-2xl transition-transform duration-200 will-change-transform hover:scale-105 font-gotham font-bold uppercase tracking-wider text-white">
                  Devino Partener
-               </button>
+               </a>
              </div>
           </div>
         </div>
@@ -613,9 +647,20 @@ export default function Home() {
                scrollEnd="bottom bottom-=40%"
                stagger={0.03}
                containerClassName="text-center"
-               textClassName="text-black font-gotham-condensed  uppercase py-1 leading-none text-6xl pb-0"
+               textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
              >
-               intrebari frecvente
+               intrebari
+             </ScrollFloat>
+             <ScrollFloat
+               animationDuration={1.2}
+               ease="back.inOut(2)"
+               scrollStart="center bottom+=50%"
+               scrollEnd="bottom bottom-=40%"
+               stagger={0.03}
+               containerClassName="text-center -mt-4"
+               textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+             >
+               frecvente
              </ScrollFloat>
            </div>
            
@@ -649,17 +694,46 @@ export default function Home() {
           }}>
             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
             <div className="relative z-10">
-              <ScrollFloat
-                animationDuration={1.2}
-                ease="back.inOut(2)"
-                scrollStart="center bottom+=50%"
-                scrollEnd="bottom bottom-=40%"
-                stagger={0.03}
-                containerClassName="text-center"
-                textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl md:text-4xl lg:text-6xl"
-              >
-                VREI PRIMA LUNĂ GRATUITĂ?
-              </ScrollFloat>
+              {/* Mobile version - two lines */}
+              <div className="block sm:hidden">
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center"
+                  textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl"
+                >
+                  VREI PRIMA
+                </ScrollFloat>
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center -mt-4"
+                  textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl"
+                >
+                  LUNĂ GRATUITĂ?
+                </ScrollFloat>
+              </div>
+              
+              {/* Desktop version - one line */}
+              <div className="hidden sm:block">
+                <ScrollFloat
+                  animationDuration={1.2}
+                  ease="back.inOut(2)"
+                  scrollStart="center bottom+=50%"
+                  scrollEnd="bottom bottom-=40%"
+                  stagger={0.03}
+                  containerClassName="text-center"
+                  textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl md:text-4xl lg:text-6xl"
+                >
+                  VREI PRIMA LUNĂ GRATUITĂ?
+                </ScrollFloat>
+              </div>
               <p className="text-black/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Înscrie-te pe waitlist și primește early access la CRWD!</p>
               <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_button]:bg-black [&_button]:text-white [&_button:hover]:bg-black/90 [&_a]:text-black [&_div[class*='border-white']]:border-black">
                 <LeadFormUser />
