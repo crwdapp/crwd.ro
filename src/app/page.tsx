@@ -2,24 +2,15 @@
 
 import Image from 'next/image';
 import Hero from "@/components/Hero";
-import BenefitCard from "@/components/BenefitCard";
-import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
-import CTASection from "@/components/CTASection";
-import LogoWall from "@/components/LogoWall";
 import LeadFormUser from "@/components/LeadFormUser";
 import MapAnimation from "@/components/MapAnimation";
 import MapAnimationWhite from "@/components/MapAnimationWhite";
 import ScrollRevealWhite from "@/components/ScrollRevealWhite";
 import ScrollRevealBlack from "@/components/ScrollRevealBlack";
-import LiquidGlass from "@/components/ui/LiquidGlass";
-import GlassButton from "@/components/ui/GlassButton";
-import SpotlightCard from "@/components/SpotlightCard";
 import MessageLoop from "@/components/MessageLoop";
 import TiltedCard from "@/components/TiltedCard";
 import LightRays from "@/components/LightRays";
-import TextType from "@/components/TextType";
-import ScrollReveal from "@/components/ScrollReveal";
 import RotatingText from "@/components/RotatingText";
 import Masonry from "@/components/Masonry";
 import BlurText from "@/components/BlurText";
@@ -52,25 +43,21 @@ const steps = [
 
 const faqItems = [
   {
-    question: "Când va fi lansat CRWD?",
-    answer: "Lucrăm intens la finalizarea platformei. Înscrie-te pe waitlist pentru o lună gratuită la lansare!",
+    question: "Ce este CRWD?",
+    answer: "CRWD este o platforma (aplicație mobilă și web) care conectează oamenii și localurile printr-un sistem simplu: 50% reducere la 5 băuturi, în fiecare zi, în rețeaua de localuri partenere.",
   },
   {
     question: "Ce băuturi sunt incluse în reducere?",
-    answer: "Toate băuturile din meniu, setate de localurile partenere — de la cafea și fresh-uri, până la bere, vin, cocktailuri sau long drinks.",
+    answer: "Toate băuturile din meniu, setate de localurile partenere — de la cafea, fresh-uri, matcha până la bere, vin sau cocktailuri",
+  },
+  {
+    question: "Despre ce evenimente vorbim?",
+    answer: "Localurile partenere își postează evenimentele, tu alegi unde mergi — fără să mai pierzi timp prin zeci de pagini sau story-uri. Totul e în aplicație, iar băuturile sunt, ca de obicei, la jumătate de preț."
   },
   {
     question: "În ce orașe va fi disponibil?",
-    answer: "Inițial vom lansa în București și Constanța, apoi ne extindem rapid în alte orașe majore din România.",
-  },
-  {
-    question: "De ce pot comanda doar 5 băuturi?",
-    answer: "Pentru că orașul merită explorat. Bei o cafea în centru, o limonadă după masă și un cocktail pe rooftop.",
-  },
-  {
-    question: "Cum vă asigurați de calitatea localurilor?",
-    answer: "Fiecare local partener trece printr-un proces de verificare. Plus, comunitatea noastră evaluează și recomandă cele mai bune experiențe. Tu ne ceri, noi aducem.",
-  },
+    answer: "CRWD e acolo unde ești tu și prietenii tăi. Cu cât sunteți mai mulți pe waitlist din orașul vostru, cu atât ajungem mai repede.",
+  }
 ];
 
 export default function Home() {
@@ -100,9 +87,7 @@ export default function Home() {
         subtitle={`Ai 50% reducere la 5 băuturi pe zi,\nîn toate localurile partenere.`}
         backgroundAnimation={<MapAnimation />}
       >
-        <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_button]:bg-black [&_button]:text-white [&_button:hover]:bg-black/90 [&_a]:text-black [&_div[class*='border-white']]:border-black">
-          <LeadFormUser />
-        </div>
+        <LeadFormUser />
       </Hero>
 
       {/* How It Works - LIQUID GLASS CARDS */}

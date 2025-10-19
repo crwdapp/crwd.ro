@@ -60,10 +60,10 @@ export default function LeadFormVenue() {
   }
 
   return (
-    <LiquidGlass tone="neutral" elevation={2} className="p-4 sm:p-6 md:p-8 rounded-2xl max-w-md mx-auto">
+    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl max-w-md mx-auto shadow-lg">
       <form onSubmit={onSubmit} className="space-y-3 sm:space-y-4">
         <div>
-        <label htmlFor="contact_name" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
+        <label htmlFor="contact_name" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
           Nume contact *
         </label>
         <input
@@ -72,12 +72,12 @@ export default function LeadFormVenue() {
           name="contact_name"
           required
           placeholder="Ion Popescu"
-          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black placeholder-black/30 focus:outline-none focus:border-black transition-colors font-gotham"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
+        <label htmlFor="email" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
           Email *
         </label>
         <input
@@ -86,12 +86,12 @@ export default function LeadFormVenue() {
           name="email"
           required
           placeholder="contact@local.ro"
-          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black placeholder-black/30 focus:outline-none focus:border-black transition-colors font-gotham"
         />
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
+        <label htmlFor="phone" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
           Telefon
         </label>
         <input
@@ -99,18 +99,18 @@ export default function LeadFormVenue() {
           id="phone"
           name="phone"
           placeholder="0712 345 678"
-          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors font-gotham"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black placeholder-black/30 focus:outline-none focus:border-black transition-colors font-gotham"
         />
       </div>
 
       <div>
-        <label htmlFor="city" className="block text-xs font-gotham font-semibold text-white mb-2 uppercase tracking-wider">
+        <label htmlFor="city" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
           Oraș
         </label>
         <select
           id="city"
           name="city"
-          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-black border border-white/30 text-white focus:outline-none focus:border-white transition-colors font-gotham"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black focus:outline-none focus:border-black transition-colors font-gotham"
         >
           <option value="">Alege orașul...</option>
           <option value="București">București</option>
@@ -134,11 +134,11 @@ export default function LeadFormVenue() {
           id="marketing_consent"
           name="marketing_consent"
           required
-          className="mt-1 h-4 w-4 rounded-none border-white/30 bg-black text-white focus:ring-white flex-shrink-0"
+          className="mt-1 h-4 w-4 rounded-none border-black/30 bg-white text-black focus:ring-black flex-shrink-0"
         />
-        <label htmlFor="marketing_consent" className="ml-2 text-xs text-white/70 font-gotham leading-relaxed">
+        <label htmlFor="marketing_consent" className="ml-2 text-xs text-black/70 font-gotham leading-relaxed">
           Sunt de acord cu{" "}
-          <a href="/politica-confidentialitate" className="text-white underline hover:text-white/70">
+          <a href="/politica-confidentialitate" className="text-black underline hover:text-black/70">
             prelucrarea datelor
           </a>{" "}
           și să primesc informații despre parteneriat. *
@@ -156,7 +156,7 @@ export default function LeadFormVenue() {
       />
 
       {errorMessage && (
-        <div className="rounded-none border border-white p-3 sm:p-4 text-xs sm:text-sm text-white/70 font-gotham">
+        <div className="rounded-none border border-black p-3 sm:p-4 text-xs sm:text-sm text-black/70 font-gotham">
           {errorMessage}
         </div>
       )}
@@ -173,19 +173,19 @@ export default function LeadFormVenue() {
           {state === "loading" ? "Se trimite..." : "Aplică pentru parteneriat"}
         </GlassButton>
 
-        <p className="text-xs text-white/60 text-center mt-2 font-gotham">
+        <p className="text-xs text-black/60 text-center mt-2 font-gotham">
           Sau{" "}
           <a
             href="https://calendly.com/crwd"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white underline hover:text-white/90 transition-colors"
+            className="text-black underline hover:text-black/90 transition-colors"
           >
             programează un demo
           </a>
         </p>
       </form>
-    </LiquidGlass>
+    </div>
   );
 }
 

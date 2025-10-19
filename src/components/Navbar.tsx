@@ -70,14 +70,14 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4 items-center">
               <Link
                 href="/parteneri"
-                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl sm:text-2xl font-gotham-condensed font-bold tracking-tight uppercase"
+                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-4xl font-gotham-condensed font-bold tracking-tight uppercase"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Parteneri
               </Link>
               <Link
                 href="/contact"
-                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-xl sm:text-2xl font-gotham-condensed font-bold tracking-tight uppercase"
+                className="text-white hover:text-black hover:[-webkit-text-stroke:0.5px_white] transition-all duration-300 text-4xl font-gotham-condensed font-bold tracking-tight uppercase"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
