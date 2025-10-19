@@ -17,10 +17,10 @@ export default function LeadFormVenue() {
 
     const form = new FormData(e.currentTarget);
     const payload = {
+      venue_name: form.get("venue_name"),
       contact_name: form.get("contact_name"),
       email: form.get("email"),
       phone: form.get("phone"),
-      city: form.get("city"),
       marketing_consent: form.get("marketing_consent") === "on",
       website: form.get("website"), // honeypot
     };
@@ -63,22 +63,36 @@ export default function LeadFormVenue() {
     <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl max-w-md mx-auto shadow-lg">
       <form onSubmit={onSubmit} className="space-y-3 sm:space-y-4">
         <div>
+        <label htmlFor="venue_name" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
+          Nume Local *
+        </label>
+        <input
+          type="text"
+          id="venue_name"
+          name="venue_name"
+          required
+          placeholder="Numele localului"
+          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black placeholder-black/30 focus:outline-none focus:border-black transition-colors font-gotham"
+        />
+      </div>
+
+      <div>
         <label htmlFor="contact_name" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
-          Nume contact *
+          Numele tău *
         </label>
         <input
           type="text"
           id="contact_name"
           name="contact_name"
           required
-          placeholder="Ion Popescu"
+          placeholder="Numele tău"
           className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black placeholder-black/30 focus:outline-none focus:border-black transition-colors font-gotham"
         />
       </div>
 
       <div>
         <label htmlFor="email" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
-          Email *
+          E-mail *
         </label>
         <input
           type="email"
@@ -92,40 +106,16 @@ export default function LeadFormVenue() {
 
       <div>
         <label htmlFor="phone" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
-          Telefon
+          Telefon *
         </label>
         <input
           type="tel"
           id="phone"
           name="phone"
+          required
           placeholder="0712 345 678"
           className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black placeholder-black/30 focus:outline-none focus:border-black transition-colors font-gotham"
         />
-      </div>
-
-      <div>
-        <label htmlFor="city" className="block text-xs font-gotham font-semibold text-black mb-2 uppercase tracking-wider">
-          Oraș
-        </label>
-        <select
-          id="city"
-          name="city"
-          className="w-full px-3 sm:px-4 py-3.5 sm:py-4 text-sm sm:text-base rounded-none bg-white border border-black/30 text-black focus:outline-none focus:border-black transition-colors font-gotham"
-        >
-          <option value="">Alege orașul...</option>
-          <option value="București">București</option>
-          <option value="Cluj-Napoca">Cluj-Napoca</option>
-          <option value="Timișoara">Timișoara</option>
-          <option value="Iași">Iași</option>
-          <option value="Constanța">Constanța</option>
-          <option value="Brașov">Brașov</option>
-          <option value="Craiova">Craiova</option>
-          <option value="Galați">Galați</option>
-          <option value="Ploiești">Ploiești</option>
-          <option value="Oradea">Oradea</option>
-          <option value="Sibiu">Sibiu</option>
-          <option value="Altul">Altul</option>
-        </select>
       </div>
 
       <div className="flex items-start pt-1">
@@ -165,25 +155,13 @@ export default function LeadFormVenue() {
           type="submit"
           disabled={state === "loading"}
           fullWidth
-          tone="purple"
+          tone="aqua"
           elevation={3}
           size="lg"
           className="font-gotham font-bold uppercase tracking-wider text-white text-sm sm:text-base"
         >
-          {state === "loading" ? "Se trimite..." : "Aplică pentru parteneriat"}
+          {state === "loading" ? "Se trimite..." : "Devino Partener"}
         </GlassButton>
-
-        <p className="text-xs text-black/60 text-center mt-2 font-gotham">
-          Sau{" "}
-          <a
-            href="https://calendly.com/crwd"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-black underline hover:text-black/90 transition-colors"
-          >
-            programează un demo
-          </a>
-        </p>
       </form>
     </div>
   );

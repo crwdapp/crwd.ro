@@ -77,15 +77,15 @@ const steps = [
 export default function ParteneriPage() {
   return (
     <>
-      {/* Hero Section - BLACK with Magnetic People Animation */}
+      {/* Hero Section - BLACK with Map Animation */}
       <Hero
         title={
           <div className="text-center">
             <div className="text-8xl sm:text-8xl md:text-7xl lg:text-8xl xl:text-9xl font-gotham-condensed font-bold text-white uppercase tracking-tight leading-none">CLIENTI NOI</div>
             <div className="flex justify-center mt-2 sm:mt-3 md:mt-4">
               <RotatingText
-                texts={['in fiecare zi', 'fara comision']}
-                mainClassName="inline-block text-black bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 backdrop-blur-md border-2 border-green-700/90 font-gotham-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
+                texts={['zilnic', 'gratuit', 'garantat']}
+                mainClassName="inline-block text-white aqua-glass font-gotham-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -101,134 +101,10 @@ export default function ParteneriPage() {
         subtitle={`Tu faci atmosfera, noi aducem oamenii care o caută. Vizibilitate, evenimente, trafic real.`}
         backgroundAnimation={<MapAnimation />}
       >
-        <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_button]:bg-black [&_button]:text-white [&_button:hover]:bg-black/90 [&_a]:text-black [&_div[class*='border-white']]:border-black">
-          <LeadFormVenue />
-        </div>
+        <LeadFormVenue />
       </Hero>
-
-      {/* Benefits Tabbed Section */}
-      <BenefitsTabbed />
-
-      {/* How It Works - LIQUID GLASS CARDS */}
-      <section className="py-20 sm:py-24 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 bg-white border-b border-black/10 relative overflow-hidden">
-        {/* Map Animation Background */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <MapAnimationWhite />
-        </div>
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-
-        <div className="container mx-auto max-w-7xl relative z-10">
-          {/* Header */}
-          <p className="text-black/60 font-gotham text-xs text-center sm:text-sm uppercase tracking-wider">
-            CUM FUNCȚIONEAZĂ
-          </p>
-          <div className="text-center mb-12 sm:mb-16 md:mb-20 mt-0">
-            <ScrollFloat
-              animationDuration={1.2}
-              ease="back.inOut(2)"
-              scrollStart="center bottom+=50%"
-              scrollEnd="bottom bottom-=40%"
-              stagger={0.03}
-              containerClassName="text-center"
-              textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
-            >
-              PENTRU PARTENERI
-            </ScrollFloat>
-            <div className="max-w-3xl mx-auto mt-6">
-              <ScrollRevealBlack
-                baseOpacity={0.1}
-                enableBlur={true}
-                baseRotation={8}
-                blurStrength={15}
-              >
-                Patru pași simpli pentru a te alătura rețelei noastre și a începe să primești comenzi
-              </ScrollRevealBlack>
-            </div>
-          </div>
-
-          {/* Steps Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="group relative"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
-              >
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-16 left-full w-8 h-px bg-black/20 z-0"></div>
-                )}
-
-                {/* Tilted Card with Aqua Glass */}
-                <TiltedCard
-                  imageSrc=""
-                  altText={step.title}
-                  captionText={step.title}
-                  containerHeight="300px"
-                  containerWidth="100%"
-                  imageHeight="300px"
-                  imageWidth="100%"
-                  rotateAmplitude={12}
-                  scaleOnHover={1.1}
-                  showMobileWarning={false}
-                  showTooltip={false}
-                  displayOverlayContent={true}
-                  overlayContent={
-                    <div className="absolute inset-0 aqua-glass rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center h-full">
-                      <div className="text-5xl sm:text-6xl mb-3 sm:mb-4 text-center">
-                        {step.icon}
-                      </div>
-                      <h3 className="text-lg lg:text-xl font-special-gothic-condensed font-bold text-white mb-2 sm:mb-3 uppercase tracking-wide text-center" style={{
-                        textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
-                      }}>
-                        <BlurText
-                          text={step.title}
-                          delay={100}
-                          animateBy="words"
-                          direction="top"
-                          className="text-center"
-                        />
-                      </h3>
-                      <p className="text-white font-gotham text-sm md:text-base leading-relaxed text-center" style={{
-                        textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
-                      }}>
-                        <BlurText
-                          text={step.description}
-                          delay={150}
-                          animateBy="words"
-                          direction="bottom"
-                          className="text-center"
-                        />
-                      </p>
-                    </div>
-                  }
-                />
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Infinite Scrolling Messages */}
-      <section className="py-4 px-4 bg-black border-y border-white/10">
-        <MessageLoop 
-          messages={[
-            "Plătești promovare, dar clienții nu vin?",
-            "Vrei mai mult trafic, dar fără costuri în plus?",
-            "Vrei să știi ce merge și când?"
-          ]}
-          className="messageloop--fade"
-        />
-      </section>
-
-      
-
-      {/* CRWD For Partners - BLACK */}
-      <section id="crwd-for-partners" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-black flex items-center">
+ {/* CRWD For Partners - BLACK */}
+ <section id="crwd-for-partners" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-black flex items-center">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Phone Mockup */}
@@ -345,16 +221,143 @@ export default function ParteneriPage() {
         </div>
       </section>
 
+
+      {/* How It Works - LIQUID GLASS CARDS */}
+      <section className="py-20 sm:py-24 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 bg-white border-b border-black/10 relative overflow-hidden">
+        {/* Map Animation Background */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <MapAnimationWhite />
+        </div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          {/* Header */}
+          <p className="text-black/60 font-gotham text-xs text-center sm:text-sm uppercase tracking-wider">
+            CUM FUNCȚIONEAZĂ
+          </p>
+          <div className="text-center mb-12 sm:mb-16 md:mb-20 mt-0">
+            <ScrollFloat
+              animationDuration={1.2}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+              containerClassName="text-center"
+              textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+            >
+              PENTRU PARTENERI
+            </ScrollFloat>
+            <div className="max-w-3xl mx-auto mt-6">
+              <ScrollRevealBlack
+                baseOpacity={0.1}
+                enableBlur={true}
+                baseRotation={8}
+                blurStrength={15}
+              >
+                Patru pași simpli pentru a te alătura rețelei noastre și a începe să primești comenzi
+              </ScrollRevealBlack>
+            </div>
+          </div>
+
+          {/* Steps Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 md:gap-8">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="group relative"
+                style={{
+                  animationDelay: `${index * 100}ms`
+                }}
+              >
+                {/* Connector Line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-16 left-full w-8 h-px bg-black/20 z-0"></div>
+                )}
+
+                {/* Tilted Card with Aqua Glass */}
+                <TiltedCard
+                  imageSrc=""
+                  altText={step.title}
+                  captionText={step.title}
+                  containerHeight="300px"
+                  containerWidth="100%"
+                  imageHeight="300px"
+                  imageWidth="100%"
+                  rotateAmplitude={12}
+                  scaleOnHover={1.1}
+                  showMobileWarning={false}
+                  showTooltip={false}
+                  displayOverlayContent={true}
+                  overlayContent={
+                    <div className="absolute inset-0 aqua-glass rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center h-full">
+                      <div className="text-5xl sm:text-6xl mb-3 sm:mb-4 text-center">
+                        {step.icon}
+                      </div>
+                      <h3 className="text-lg lg:text-xl font-special-gothic-condensed font-bold text-white mb-2 sm:mb-3 uppercase tracking-wide text-center" style={{
+                        textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+                      }}>
+                        <BlurText
+                          text={step.title}
+                          delay={100}
+                          animateBy="words"
+                          direction="top"
+                          className="text-center"
+                        />
+                      </h3>
+                      <p className="text-white font-gotham text-sm md:text-base leading-relaxed text-center" style={{
+                        textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+                      }}>
+                        <BlurText
+                          text={step.description}
+                          delay={150}
+                          animateBy="words"
+                          direction="bottom"
+                          className="text-center"
+                        />
+                      </p>
+                    </div>
+                  }
+                />
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      
+
+      {/* Benefits Tabbed Section */}
+      <BenefitsTabbed />
+
+
+      {/* Infinite Scrolling Messages */}
+      <section className="py-4 px-4 bg-black border-y border-white/10">
+        <MessageLoop 
+          messages={[
+            "Plătești promovare, dar clienții nu vin?",
+            "Vrei mai mult trafic, dar fără costuri în plus?",
+            "Vrei să știi ce merge și când?"
+          ]}
+          className="messageloop--fade"
+        />
+      </section>
+
+      
+
+     
+
   
 
 
-      {/* CTA Section - BLACK */}
-      <section className="py-20 sm:py-24 md:py-28 lg:py-36 px-4 sm:px-6 lg:px-8 bg-black border-b border-white/10">
-        <div className="container mx-auto max-w-4xl">
-          <div className="p-8 md:p-12 lg:p-16 bg-black relative overflow-hidden" style={{
-            boxShadow: '0 4px 16px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+      {/* CTA Section - WHITE */}
+      <section className="py-16 md:py-16 px-4 bg-white">
+        <div className="container mx-auto max-w-3xl">
+          <div className="p-8 md:p-12 lg:p-16 bg-white relative overflow-hidden" style={{
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
           }}>
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
             <div className="relative z-10">
               <div className="text-center mb-6">
                 <ScrollFloat
@@ -364,15 +367,13 @@ export default function ParteneriPage() {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.03}
                   containerClassName="text-center"
-                  textClassName="text-white font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl md:text-4xl lg:text-6xl"
+                  textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl md:text-4xl lg:text-6xl"
                 >
                   PREGĂTIT SĂ CREȘTI?
                 </ScrollFloat>
               </div>
-              <p className="text-white/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Completează formularul sau programează un demo pentru a discuta detaliile.</p>
-              <div className="[&_input]:bg-black [&_input]:border-white/30 [&_input]:text-white [&_input]:placeholder-white/30 [&_input:focus]:border-white [&_select]:bg-black [&_select]:border-white/30 [&_select]:text-white [&_select:focus]:border-white [&_label]:text-white [&_button]:bg-white [&_button]:text-black [&_button:hover]:bg-white/90 [&_a]:text-white [&_div[class*='border-black']]:border-white">
-                <LeadFormVenue />
-              </div>
+              <p className="text-black/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Completează formularul pentru a discuta detaliile.</p>
+              <LeadFormVenue />
             </div>
           </div>
         </div>

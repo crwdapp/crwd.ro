@@ -18,7 +18,8 @@
       "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
       "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
       "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude/**)",
-      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\app/**)"
+      "Read(c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\app/**)",
+      "Bash(Remove-Item \"c:\\CRWD\\Proiecte Toamna\\crwd.ro.claude\\src\\components\\HeroWhite.tsx\" -Force)"
     ],
     "deny": [],
     "ask": []
