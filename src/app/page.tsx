@@ -87,7 +87,9 @@ export default function Home() {
         subtitle={`Ai 50% reducere la 5 băuturi pe zi,\nîn toate localurile partenere.`}
         backgroundAnimation={<MapAnimation />}
       >
-        <LeadFormUser />
+        <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_a]:text-black [&_div[class*='border-white']]:border-black">
+          <LeadFormUser />
+        </div>
       </Hero>
 
       {/* How It Works - LIQUID GLASS CARDS */}
@@ -727,7 +729,7 @@ export default function Home() {
                 </ScrollFloat>
               </div>
               <p className="text-black/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Înscrie-te pe waitlist și primește early access la CRWD!</p>
-              <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_button]:bg-black [&_button]:text-white [&_button:hover]:bg-black/90 [&_a]:text-black [&_div[class*='border-white']]:border-black">
+              <div className="[&_input]:bg-white [&_input]:border-black/30 [&_input]:text-black [&_input]:placeholder-black/30 [&_input:focus]:border-black [&_select]:bg-white [&_select]:border-black/30 [&_select]:text-black [&_select:focus]:border-black [&_label]:text-black [&_a]:text-black [&_div[class*='border-white']]:border-black">
                 <LeadFormUser />
               </div>
             </div>

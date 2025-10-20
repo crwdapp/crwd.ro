@@ -272,7 +272,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={state === "loading"}
-                      className="w-full px-8 py-4 rounded-2xl bg-black text-white font-gotham-condensed font-bold uppercase tracking-wide hover:bg-black/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-lg sm:text-xl md:text-2xl"
+                      className="w-full px-8 py-4 rounded-2xl aqua-glass text-white font-gotham-condensed font-bold uppercase tracking-wide transition-all disabled:opacity-50 disabled:cursor-not-allowed text-lg sm:text-xl md:text-2xl"
                     >
                       {state === "loading" ? "Se trimite..." : "Trimite mesaj"}
                     </button>
