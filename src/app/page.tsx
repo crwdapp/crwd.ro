@@ -368,7 +368,7 @@ export default function Home() {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.03}
                   containerClassName="text-center"
-                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl"
                 >
                   WHERE THE 
                 </ScrollFloat>
@@ -379,7 +379,7 @@ export default function Home() {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.03}
                   containerClassName="text-center -mt-4"
-                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl"
                 >
                   CRWD&apos;S AT
                 </ScrollFloat>
@@ -621,8 +621,15 @@ export default function Home() {
      
 
       {/* FAQ - WHITE */}
-      <section className="py-8 md:py-16 sm:py-6 px-4 bg-white border-b border-black/10">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-8 md:py-16 sm:py-6 px-4 bg-white border-b border-black/10 relative overflow-hidden">
+        {/* Map Animation Background */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <MapAnimationWhite />
+        </div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        
+        <div className="container mx-auto max-w-4xl relative z-10">
            {/* Mobile version - two lines */}
            <div className="block sm:hidden">
              <ScrollFloat
@@ -632,9 +639,9 @@ export default function Home() {
                scrollEnd="bottom bottom-=40%"
                stagger={0.03}
                containerClassName="text-center"
-               textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+               textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-5xl"
              >
-               intrebari
+               întrebări
              </ScrollFloat>
              <ScrollFloat
                animationDuration={1.2}
@@ -643,7 +650,7 @@ export default function Home() {
                scrollEnd="bottom bottom-=40%"
                stagger={0.03}
                containerClassName="text-center -mt-4"
-               textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+               textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-5xl"
              >
                frecvente
              </ScrollFloat>

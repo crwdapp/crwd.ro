@@ -13,6 +13,7 @@ import MapAnimationWhite from "@/components/MapAnimationWhite";
 import MapAnimation from "@/components/MapAnimation";
 import BenefitsTabbed from "@/components/BenefitsTabbed";
 import RotatingText from "@/components/RotatingText";
+import FAQ from "@/components/FAQ";
 
 
 
@@ -39,19 +40,40 @@ const steps = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "Cât costă să devin partener CRWD?",
+    answer: "Absolut nimic! Nu plătești comisioane, abonamente lunare sau taxe de înregistrare. CRWD iți aduce oamenii, tu oferi băuturile reduse."
+  },
+  {
+    question: "De ce echipamente am nevoie?",
+    answer: "„Ai nevoie doar de tag-ul NFC, pe care îl primești gratuit de la noi. Nu ai nevoie de echipamente noi sau integrări POS. Aplicația funcționează pe baza unui link și poate fi accesată de pe orice dispozitiv.”"
+  },
+  {
+    question: "Ce este un NFC tag?",
+    answer: "NFC-ul este un cip electronic pe care îl plasezi în localul tău. Prin intermediul lui ne asigurăm că primești comenzi doar de la clienții care se află fizic în local. Clienții îl scanează pentru a activa funcția de comandă în aplicație."
+  },
+  {
+    question: "Cum funcționează sistemul de plată?",
+    answer: "Clienții plătesc 50% din prețul băuturii pe care o setezi în aplicație, direct în POS-ul tău. Se generează automat un număr de comandă, care îți apare imediat în aplicație. Cu acest număr, clientul vine la tine pentru a achita și a primi băutura."
+  },
+  {
+    question: "Pot să setez propriile reduceri?",
+    answer: "Da! Ai posibilitatea să adaugi mai multe meniuri, fiecare cu tipul lui de băuturi, potrivit pentru fiecare zi sau eveniment."
+  },
+  {
+    question: "Cum pot urmări performanța?",
+    answer: "Ai acces la un dashboard complet cu statistici în timp real: numărul de comenzi, orele de vârf, băuturile populare și clienții recurenți."
+  },
+  {
+    question: "5 băuturi reduse pe zi? Nu e mult?",
+    answer: "„Pentru un singur local poate părea mult, însă pentru altele poate fi o nouă tactică de marketing. Nu ești obligat să le oferi pe toate! Fiecare tip de local are un minim recomandat. Dacă ai o cafenea, știm că nu poți oferi 5 băuturi pe zi, per client, dar o băutură este chiar recomandată. Iar dacă ai un pub și te-ai săturat ca singurele zile aglomerate să fie în weekend, oferind mai multe băuturi reduse poți atrage clienți și în restul zilelor."
+  }
+];
+
 export default function ParteneriPage() {
   return (
     <>
-      <style jsx global>{`
-        .responsive-card-height figure {
-          height: 300px !important;
-        }
-        @media (min-width: 1024px) {
-          .responsive-card-height figure {
-            height: 400px !important;
-          }
-        }
-      `}</style>
       {/* Hero Section - BLACK with Map Animation */}
       <Hero
         title={
@@ -227,9 +249,9 @@ export default function ParteneriPage() {
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
               containerClassName="text-center"
-              textClassName="text-white font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl"
+              textClassName="text-white font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl"
             >
-              SETEAZA-TI LOCALUL PE MODUL CRWD
+              SETEAZĂ-ȚI LOCALUL PE MODUL CRWD
             </ScrollFloat>
            
           </div>
@@ -250,7 +272,6 @@ export default function ParteneriPage() {
                 )}
 
                 {/* Tilted Card with Aqua Glass */}
-                <div className="responsive-card-height">
                 <TiltedCard
                   imageSrc=""
                   altText={step.title}
@@ -265,8 +286,8 @@ export default function ParteneriPage() {
                   showTooltip={false}
                   displayOverlayContent={true}
                   overlayContent={
-                    <div className="absolute inset-0 aqua-glass rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center h-full">
-                      <h3 className="text-lg lg:text-xl font-special-gothic-condensed font-bold text-white mb-1 sm:mb-2 uppercase tracking-wide text-center" style={{
+                    <div className="absolute inset-0 aqua-glass rounded-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center h-full">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-1.5 sm:mb-2 md:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
                         <BlurText
@@ -277,7 +298,7 @@ export default function ParteneriPage() {
                           className="text-center"
                         />
                       </h3>
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-2 sm:mb-3 text-center flex items-center justify-center">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mb-1.5 sm:mb-2 md:mb-3 text-center flex items-center justify-center">
                         <Image
                           src={step.icon}
                           alt={step.title}
@@ -286,7 +307,7 @@ export default function ParteneriPage() {
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <p className="text-white font-gotham text-sm md:text-base leading-relaxed text-left" style={{
+                      <p className="text-white font-gotham text-xs sm:text-sm md:text-base leading-snug sm:leading-relaxed text-center" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
                         <BlurText
@@ -294,13 +315,12 @@ export default function ParteneriPage() {
                           delay={150}
                           animateBy="words"
                           direction="bottom"
-                          className="text-left"
+                          className="text-center"
                         />
                       </p>
                     </div>
                   }
                 />
-                </div>
               </div>
             ))}
           </div>
@@ -323,6 +343,64 @@ export default function ParteneriPage() {
   
 
 
+      {/* FAQ - WHITE */}
+      <section className="py-8 md:py-16 sm:py-6 px-4 bg-white border-b border-black/10 relative overflow-hidden">
+        {/* Map Animation Background */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <MapAnimationWhite />
+        </div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        
+        <div className="container mx-auto max-w-4xl relative z-10">
+           {/* Mobile version - two lines */}
+           <div className="block sm:hidden">
+             <ScrollFloat
+               animationDuration={1.2}
+               ease="back.inOut(2)"
+               scrollStart="center bottom+=50%"
+               scrollEnd="bottom bottom-=40%"
+               stagger={0.03}
+               containerClassName="text-center"
+               textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+             >
+               întrebări
+             </ScrollFloat>
+             <ScrollFloat
+               animationDuration={1.2}
+               ease="back.inOut(2)"
+               scrollStart="center bottom+=50%"
+               scrollEnd="bottom bottom-=40%"
+               stagger={0.03}
+               containerClassName="text-center -mt-4"
+               textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-5xl"
+             >
+               frecvente
+             </ScrollFloat>
+           </div>
+           
+           {/* Desktop version - one line */}
+           <div className="hidden sm:block">
+             <ScrollFloat
+               animationDuration={1.2}
+               ease="back.inOut(2)"
+               scrollStart="center bottom+=50%"
+               scrollEnd="bottom bottom-=40%"
+               stagger={0.03}
+               containerClassName="text-center"
+               textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl"
+             >
+               intrebari frecvente
+             </ScrollFloat>
+           </div>
+          <div className="space-y-px pt-8">
+            {faqItems.map((item, index) => (
+              <FAQ key={index} items={[item]} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section - WHITE */}
       <section className="py-16 md:py-16 px-4 bg-white">
         <div className="container mx-auto max-w-3xl">
@@ -341,7 +419,7 @@ export default function ParteneriPage() {
                   containerClassName="text-center"
                   textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-3xl md:text-4xl lg:text-6xl"
                 >
-                  PREGĂTIT SĂ CREȘTI?
+                  ALĂTURA-TE GRATUIT
                 </ScrollFloat>
               </div>
               <p className="text-black/70 text-center mb-8 md:mb-12 font-gotham text-base md:text-lg">Completează formularul pentru a discuta detaliile.</p>
