@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Parteneri - Crește afacerea cu CRWD",
+  title: "Parteneri - Crește traficul din prima lună cu CRWD",
   description:
-    "Alătură-te rețelei CRWD și atrage mai mulți clienți în localul tău. Oferim marketing gratuit, audiență calificată și sistem simplu de management.",
+    "Tu faci atmosfera, noi aducem oamenii care o caută. Vizibilitate, evenimente, trafic real.",
 };
 
 export default function ParteneriLayout({
@@ -13,13 +13,3 @@ export default function ParteneriLayout({
 }) {
   return <>{children}</>;
 }
-
-
-
-
-
-
-
-
-
-

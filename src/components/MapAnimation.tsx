@@ -25,20 +25,39 @@ export default function MapAnimation() {
     let terrainLines: TerrainLine[] = [];
     let animationFrameId: number;
 
+    // Track last canvas size to detect meaningful changes
+    let lastWidth = 0;
+    let lastHeight = 0;
+    let resizeTimeout: NodeJS.Timeout | null = null;
+
     // Set canvas size
     const setCanvasSize = () => {
       const container = canvas.parentElement;
       if (!container) return;
-      
+
       const rect = container.getBoundingClientRect();
+
+      // Only update if size changed meaningfully (more than 20px)
+      const widthDiff = Math.abs(rect.width - lastWidth);
+      const heightDiff = Math.abs(rect.height - lastHeight);
+
+      if (widthDiff < 20 && heightDiff < 20 && lastWidth !== 0) {
+        return false; // No meaningful change
+      }
+
       canvas.width = rect.width;
       canvas.height = rect.height;
+      lastWidth = rect.width;
+      lastHeight = rect.height;
+
       animationBounds = {
         x: 0,
         y: 0,
         width: canvas.width,
         height: canvas.height,
       };
+
+      return true; // Size changed meaningfully
     };
     setCanvasSize();
 
@@ -367,11 +386,24 @@ export default function MapAnimation() {
       animationFrameId = requestAnimationFrame(animate);
     }
 
-    // Handle resize
+    // Handle resize with debouncing
     const handleResize = () => {
-      setCanvasSize();
-      init();
+      // Clear existing timeout
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+
+      // Debounce: wait 300ms after last resize event
+      resizeTimeout = setTimeout(() => {
+        const sizeChanged = setCanvasSize();
+
+        // Only re-initialize if size actually changed meaningfully
+        if (sizeChanged) {
+          init();
+        }
+      }, 300);
     };
+
     window.addEventListener("resize", handleResize);
 
     // Start
@@ -381,10 +413,23 @@ export default function MapAnimation() {
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" style={{ minHeight: '100%', minWidth: '100%' }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      style={{
+        minHeight: '100%',
+        minWidth: '100%',
+        touchAction: 'none'
+      }}
+    />
+  );
 }
 

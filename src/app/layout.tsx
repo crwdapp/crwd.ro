@@ -25,7 +25,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "CRWD - Descoperă cele mai tari locuri din oraș",
+    default: "CRWD - Ieși mai des, cheltui mai puțin.",
     template: "%s | CRWD",
   },
   description:
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     locale: "ro_RO",
     url: "https://crwd.ro",
     siteName: "CRWD",
-    title: "CRWD - Descoperă cele mai tari locuri din oraș",
+    title: "CRWD - Ieși mai des, cheltui mai puțin.",
     description:
       "Platforma care conectează oamenii cu cele mai interesante cafenele, baruri și restaurante din oraș.",
     images: [
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CRWD - Descoperă cele mai tari locuri din oraș",
+    title: "CRWD - Ieși mai des, cheltui mai puțin.",
     description:
       "Platforma care conectează oamenii cu cele mai interesante cafenele, baruri și restaurante din oraș.",
     images: ["/images/og-image.png"],
