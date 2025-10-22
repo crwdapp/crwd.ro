@@ -21,7 +21,7 @@ import FAQ from "@/components/FAQ";
 const steps = [
   {
     title: "Aplică în câteva minute",
-    description: "Completează datele localului – nume, date de contact și oraș. Îți trimitem un NFC pe care il pui in localul tău.",
+    description: "Completează datele localului: nume, date de contact și oraș. Îți trimitem un NFC pe care il pui in localul tău.",
     icon: "/images/hiw-venues-1.png"
   },
   {
@@ -36,7 +36,7 @@ const steps = [
   },
   {
     title: "Atrage mai mulți clienți",
-    description: "Păstrezi 100% din vânzări. Vezi statistici, ore de vârf și clienți recurenți — și adu mai mult trafic prin evenimentele listate în aplicație.",
+    description: "Păstrezi 100% din vânzări. Vezi statistici, ore de vârf, clienți recurenți și adu mai mult trafic prin evenimentele listate în aplicație.",
     icon: "/images/hiw-venues-4.png"
   },
 ];
@@ -45,6 +45,10 @@ const faqItems = [
   {
     question: "Cât costă să devin partener CRWD?",
     answer: "Absolut nimic! Nu plătești comisioane, abonamente lunare sau taxe de înregistrare. CRWD iți aduce oamenii, tu oferi băuturile reduse."
+  },
+  {
+    question: "5 băuturi reduse pe zi? Nu este mult?",
+    answer: "„Pentru un singur local poate părea mult, însă pentru altele poate fi o nouă tactică de marketing. Nu ești obligat să le oferi pe toate! Fiecare tip de local are un minim recomandat. Dacă ai o cafenea, înțelegem că nu poți oferi 5 băuturi pe zi, per client, dar o băutură este chiar recomandată. Iar dacă ai un pub și te-ai săturat ca singurele zile aglomerate să fie în weekend, oferind mai multe băuturi reduse poți atrage clienți și în restul zilelor."
   },
   {
     question: "De ce echipamente am nevoie?",
@@ -60,15 +64,7 @@ const faqItems = [
   },
   {
     question: "Pot să setez propriile reduceri?",
-    answer: "Da! Ai posibilitatea să adaugi mai multe meniuri, fiecare cu tipul lui de băuturi, potrivit pentru fiecare zi sau eveniment."
-  },
-  {
-    question: "Cum pot urmări performanța?",
-    answer: "Ai acces la un dashboard complet cu statistici în timp real: numărul de comenzi, orele de vârf, băuturile populare și clienții recurenți."
-  },
-  {
-    question: "5 băuturi reduse pe zi? Nu e mult?",
-    answer: "„Pentru un singur local poate părea mult, însă pentru altele poate fi o nouă tactică de marketing. Nu ești obligat să le oferi pe toate! Fiecare tip de local are un minim recomandat. Dacă ai o cafenea, știm că nu poți oferi 5 băuturi pe zi, per client, dar o băutură este chiar recomandată. Iar dacă ai un pub și te-ai săturat ca singurele zile aglomerate să fie în weekend, oferind mai multe băuturi reduse poți atrage clienți și în restul zilelor."
+    answer: "Reducerea este fixă, de 50%, însă poți crea propriile meniuri și alege ce băuturi incluzi în fiecare. Poți adăuga mai multe meniuri, fiecare cu tipuri diferite de băuturi, potrivite pentru diverse zile sau evenimente. Astfel, tu decizi ce meniu activezi și când."
   }
 ];
 
@@ -152,7 +148,7 @@ export default function ParteneriPage() {
                   scrollEnd="bottom bottom-=40%"
                   stagger={0.03}
                   containerClassName="text-center lg:text-left"
-                  textClassName="text-black font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl"
+                  textClassName="text-black font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl"
                 >
                   GROW WITH CRWD
                 </ScrollFloat>
@@ -167,7 +163,7 @@ export default function ParteneriPage() {
                   </div>
                   <div>
                     <h4 className="text-black font-special-gothic-condensed font-bold text-xl mb-1 uppercase text-left">Date reale, în timp real</h4>
-                    <p className="text-black/70 font-gotham text-md text-left">Primești un dashboard complet cu statistici despre clienți, ore de vârf și performanța meniului — tot ce ai nevoie ca să iei decizii inteligente.</p>
+                    <p className="text-black/70 font-gotham text-md text-left">Primești un dashboard complet cu statistici despre clienți, ore de vârf și performanța meniului.</p>
                   </div>
                 </div>
                 
@@ -250,9 +246,9 @@ export default function ParteneriPage() {
               scrollEnd="bottom bottom-=40%"
               stagger={0.03}
               containerClassName="text-center"
-              textClassName="text-white font-special-gothic-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl"
+              textClassName="text-white font-gotham-condensed font-bold uppercase tracking-tight leading-none text-6xl sm:text-6xl md:text-6xl lg:text-8xl xl:text-8xl"
             >
-              SETEAZĂ-ȚI LOCALUL PE MODUL CRWD
+              crwd pentru localul tau
             </ScrollFloat>
            
           </div>
