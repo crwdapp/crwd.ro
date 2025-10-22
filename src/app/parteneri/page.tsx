@@ -9,6 +9,7 @@ import ScrollFloat from "@/components/ScrollFloat";
 import ScrollRevealBlack from "@/components/ScrollRevealBlack";
 import ScrollRevealWhite from "@/components/ScrollRevealWhite";
 import BlurText from "@/components/BlurText";
+import SplitText from "@/components/SplitText";
 import MapAnimationWhite from "@/components/MapAnimationWhite";
 import MapAnimation from "@/components/MapAnimation";
 import BenefitsTabbed from "@/components/BenefitsTabbed";
@@ -287,17 +288,24 @@ export default function ParteneriPage() {
                   displayOverlayContent={true}
                   overlayContent={
                     <div className="absolute inset-0 aqua-glass rounded-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-center text-center h-full">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-1.5 sm:mb-2 md:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
+                      <div className="text-lg sm:text-xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-1.5 sm:mb-2 md:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
-                        <BlurText
+                        <SplitText
                           text={step.title}
-                          delay={100}
-                          animateBy="words"
-                          direction="top"
+                          delay={50}
+                          duration={0.6}
+                          ease="power3.out"
+                          splitType="words"
+                          from={{ opacity: 0, y: -40 }}
+                          to={{ opacity: 1, y: 0 }}
+                          threshold={0.1}
+                          rootMargin="-100px"
+                          textAlign="center"
+                          tag="h3"
                           className="text-center"
                         />
-                      </h3>
+                      </div>
                       <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mb-1.5 sm:mb-2 md:mb-3 text-center flex items-center justify-center">
                         <Image
                           src={step.icon}
@@ -307,17 +315,24 @@ export default function ParteneriPage() {
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <p className="text-white font-gotham text-xs sm:text-sm md:text-base leading-snug sm:leading-relaxed text-center" style={{
+                      <div className="text-white font-gotham text-xs sm:text-sm md:text-base leading-snug sm:leading-relaxed text-center" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
-                        <BlurText
+                        <SplitText
                           text={step.description}
-                          delay={150}
-                          animateBy="words"
-                          direction="bottom"
+                          delay={50}
+                          duration={0.6}
+                          ease="power3.out"
+                          splitType="words"
+                          from={{ opacity: 0, y: 40 }}
+                          to={{ opacity: 1, y: 0 }}
+                          threshold={0.1}
+                          rootMargin="-100px"
+                          textAlign="center"
+                          tag="p"
                           className="text-center"
                         />
-                      </p>
+                      </div>
                     </div>
                   }
                 />

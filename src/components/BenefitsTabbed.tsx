@@ -114,9 +114,10 @@ export default function BenefitsTabbed() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-2 sm:px-4 py-2 sm:py-3 rounded-lg font-gotham-condensed font-bold uppercase tracking-wide transition-all duration-300 flex items-center justify-center text-center  md:text-xl lg:text-2xl ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 text-white shadow-lg border border-green-700/90'
-                    : 'text-black/70 hover:text-green-800 hover:bg-green-50/50'
+                    ? 'bg-gradient-to-r from-[#5BC0BE]/80 via-[#4a9f9d]/60 to-[#3a7f7d]/50 text-white shadow-lg border border-[#6fffe9]/90'
+                    : 'text-black/70 hover:text-[#5BC0BE] hover:bg-[#5BC0BE]/10'
                 }`}
+                style={activeTab === tab.id ? { textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)' } : undefined}
               >
                 <span>{tab.label}</span>
               </button>

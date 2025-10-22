@@ -29,20 +29,23 @@ export default function GlassButton(props: Props) {
 
   const sizeClasses =
     size === 'sm'
-      ? 'px-4 py-2 text-sm rounded-xl'
+      ? 'px-4 py-2 rounded-xl'
       : size === 'lg'
-      ? 'px-8 py-4 text-lg rounded-2xl'
-      : 'px-6 py-3 text-base rounded-xl';
+      ? 'px-8 py-4 rounded-2xl'
+      : 'px-6 py-3 rounded-xl';
 
   return (
     <button
       className={clsx(
-        'aqua-glass inline-flex items-center justify-center font-semibold tracking-tight shadow-lg select-none',
+        'aqua-glass-dark inline-flex items-center justify-center !text-xl sm:!text-2xl lg:!text-2xl font-special-gothic-condensed font-bold text-white tracking-tight shadow-lg select-none ',
         'transition-transform duration-200 will-change-transform',
         sizeClasses,
         fullWidth && 'w-full',
         className,
       )}
+      style={{
+        textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)'
+      }}
       {...rest}
     >
       {children}

@@ -193,9 +193,9 @@ export default function MapAnimation() {
         this.pulse += 0.05;
         const pulseSize = 1 + Math.sin(this.pulse) * 0.2;
 
-        const color = this.isOpen ? "#64ff64" : "#ff6464";
-        const glowColor = this.isOpen ? "rgba(100, 255, 100, 0.4)" : "rgba(255, 100, 100, 0.4)";
-        const glowColorEnd = this.isOpen ? "rgba(100, 255, 100, 0)" : "rgba(255, 100, 100, 0)";
+        const color = this.isOpen ? "#6fffe9" : "#ff6464";
+        const glowColor = this.isOpen ? "rgba(111, 255, 233, 0.4)" : "rgba(255, 100, 100, 0.4)";
+        const glowColorEnd = this.isOpen ? "rgba(111, 255, 233, 0)" : "rgba(255, 100, 100, 0)";
 
         // Pin glow
         const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);

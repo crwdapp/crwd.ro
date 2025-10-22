@@ -14,6 +14,7 @@ import LightRays from "@/components/LightRays";
 import RotatingText from "@/components/RotatingText";
 import Masonry from "@/components/Masonry";
 import BlurText from "@/components/BlurText";
+import SplitText from "@/components/SplitText";
 import ScrollFloat from "@/components/ScrollFloat";
 
 
@@ -71,7 +72,7 @@ export default function Home() {
             <div className="flex justify-center mt-2 sm:mt-3 md:mt-4">
               <RotatingText
                 texts={['pe zi', 'in fiecare zi']}
-                mainClassName="inline-block text-black bg-gradient-to-r from-green-700/80 via-green-800/60 to-green-900/50 backdrop-blur-md border-2 border-green-700/90 font-gotham-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
+                mainClassName="inline-block text-white aqua-glass font-gotham-condensed font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-3xl text-6xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -152,17 +153,24 @@ export default function Home() {
                   displayOverlayContent={true}
                   overlayContent={
                     <div className="absolute inset-0 aqua-glass rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center text-center h-full">
-                      <h3 className="text-2xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-2 sm:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
+                      <div className="text-2xl lg:text-2xl font-special-gothic-condensed font-bold text-white mb-2 sm:mb-3 uppercase tracking-wide text-center whitespace-pre-line" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
-                        <BlurText
+                        <SplitText
                           text={step.title}
-                          delay={100}
-                          animateBy="words"
-                          direction="top"
+                          delay={50}
+                          duration={0.6}
+                          ease="power3.out"
+                          splitType="words"
+                          from={{ opacity: 0, y: -40 }}
+                          to={{ opacity: 1, y: 0 }}
+                          threshold={0.1}
+                          rootMargin="-100px"
+                          textAlign="center"
+                          tag="h3"
                           className="text-center"
                         />
-                      </h3>
+                      </div>
                       <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-3 sm:mb-4 text-center flex items-center justify-center">
                         <Image
                           src={step.icon}
@@ -172,17 +180,24 @@ export default function Home() {
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <p className="text-white font-gotham text-sm md:text-base leading-relaxed text-center" style={{
+                      <div className="text-white font-gotham text-sm md:text-base leading-relaxed text-center" style={{
                         textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
                       }}>
-                        <BlurText
+                        <SplitText
                           text={step.description}
-                          delay={150}
-                          animateBy="words"
-                          direction="bottom"
+                          delay={50}
+                          duration={0.6}
+                          ease="power3.out"
+                          splitType="words"
+                          from={{ opacity: 0, y: 40 }}
+                          to={{ opacity: 1, y: 0 }}
+                          threshold={0.1}
+                          rootMargin="-100px"
+                          textAlign="center"
+                          tag="p"
                           className="text-center"
                         />
-                      </p>
+                      </div>
                     </div>
                   }
                 />
@@ -547,8 +562,8 @@ export default function Home() {
             
              {/* Partner CTA Button */}
              <div className="flex justify-center">
-               <a href="/parteneri" className="aqua-glass inline-flex items-center justify-center font-semibold tracking-tight shadow-lg select-none px-8 py-4 text-lg rounded-2xl transition-transform duration-200 will-change-transform hover:scale-105 font-gotham font-bold uppercase tracking-wider text-white">
-                 Devino Partener
+               <a href="/parteneri" className="aqua-glass-dark inline-flex items-center justify-center text-2xl lg:text-2xl font-special-gothic-condensed font-bold text-white tracking-tight shadow-lg select-none px-8 py-4 rounded-2xl transition-transform duration-200 will-change-transform hover:scale-105" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)' }}>
+                 DEVINO PARTENER
                </a>
              </div>
           </div>
