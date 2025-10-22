@@ -43,9 +43,7 @@ export default function GlassButton(props: Props) {
         fullWidth && 'w-full',
         className,
       )}
-      style={{
-        textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)'
-      }}
+      
       {...rest}
     >
       {children}
