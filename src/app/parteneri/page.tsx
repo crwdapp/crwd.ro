@@ -303,7 +303,7 @@ export default function ParteneriPage() {
                           rootMargin="-100px"
                           textAlign="center"
                           tag="h3"
-                          className="text-center"
+                          className="text-center font-special-gothic-condensed"
                         />
                       </div>
                       <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mb-1.5 sm:mb-2 md:mb-3 text-center flex items-center justify-center">
